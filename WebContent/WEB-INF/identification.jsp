@@ -22,10 +22,9 @@
 <br>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-1"/>
-			<div class="col-sm-5">
-				<div class="card">
-					<div class="card-header text-center">
+			<div class="col-sm-6">
+				<div class="card" id="inscription">
+					<div class="card-header text-center text-white">
 						<h2>Inscription <i class="fa fa-pencil"></i></h2>
 					</div>
 					<div class="card-body">
@@ -58,9 +57,9 @@
 				</div>
 				<br>
 			</div>
-			<div class="col-sm-5">
-				<div class="card">
-					<div class="card-header text-center">
+			<div class="col-sm-6">
+				<div class="card" id="connexion">
+					<div class="card-header text-center text-white">
 						<h2>Connexion <i class="fa fa-lock"></i></h2>
 					</div>
 					<div class="card-body">
@@ -79,9 +78,14 @@
 				</div>
 				<br>
 			</div>
-			<div class="col-sm-1"/>
 		</div>
 	</div>
+	<style>
+		#inscription .card-header { background-color: #c10000; }
+		#connexion .card-header { background-color: #006f00; }
+	</style>
+	
+	<%@include file="ressource/footer.html" %>
 	<!-- import du script -->
 	<%@include file="ressource/source-bootstrap.html" %>
 </body>
