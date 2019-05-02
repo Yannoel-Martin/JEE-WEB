@@ -40,7 +40,7 @@
 						<h2>Connexion <i class="fa fa-lock"></i></h2>
 					</div>
 					<div class="card-body">
-						<form method="post" action="connecter">
+						<form method="post" action="connexion">
 							<div class="form-group">
 								<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Login">
 							</div>
