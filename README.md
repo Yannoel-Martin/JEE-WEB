@@ -22,6 +22,7 @@ First, create the database we will be using
 ```
 DROP DATABASE forum
 CREATE DATABASE forum
+\c forum
 ```
 
 Then, copy and paste the SQL that can be found at `WebContent/WEB-INF/schema.sql`.

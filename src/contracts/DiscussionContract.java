@@ -9,8 +9,11 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class DiscussionContract {
 
+    /** Table name. */
+    public static final String TABLE = "discussion";
+
     /** Unique id. */
-    public static final String ID = "id_discussion";
+    public static final String ID = "id";
 
     /** Name. */
     public static final String NAME = "name";

@@ -14,7 +14,7 @@ public class TopicContract {
     public static final String TABLE = "topic";
 
     /** Unique id. */
-    public static final String ID = "id_topic";
+    public static final String ID = "id";
 
     /** Name of the topic. */
     public static final String NAME = "name";
