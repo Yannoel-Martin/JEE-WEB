@@ -10,13 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 import beans.User;
 
 public class Connexion extends HttpServlet {
-
+	
 	/* generated ID serialisation Object */
 	private static final long serialVersionUID = 1500899097398450168L;
 
-	@Override
-    protected void doGet(final HttpServletRequest req, final HttpServletResponse res) throws ServletException, IOException {
-		final User user = new User();
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		User user = new User();
 		user.setName("John Doe");
 //		List<Topic> topics = Arrays.asList(new Topic());
 //		req.setAttribute("topics", topics);

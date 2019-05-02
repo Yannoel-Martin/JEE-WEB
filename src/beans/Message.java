@@ -8,7 +8,7 @@ import lombok.Data;
 public class Message {
 
     /** Unique id. */
-    private Integer id;
+    private Long id;
 
     /** Content. */
     private String body;
@@ -18,4 +18,14 @@ public class Message {
 
     /** Owner. */
     private User owner;
+    
+    public Message() {
+    	
+    }
+    
+	public Message(Long id, String body, ZonedDateTime sendDate) {
+    	this.id = id;
+    	this.body = body;
+    	this.sendDate = sendDate;
+    }
 }

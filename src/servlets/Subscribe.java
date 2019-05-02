@@ -15,7 +15,7 @@ public class Subscribe extends HttpServlet {
 	private static final long serialVersionUID = 1500899097398450168L;
 
 	@Override
-    protected void doGet(final HttpServletRequest req, final HttpServletResponse res) throws ServletException, IOException {
+    protected void doPost(final HttpServletRequest req, final HttpServletResponse res) throws ServletException, IOException {
 		final User user = new User();
 		user.setName("John Doe");
 //		List<Topic> topics = Arrays.asList(new Topic());

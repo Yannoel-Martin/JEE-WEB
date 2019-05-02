@@ -7,26 +7,30 @@
 <title>Topic - [Nom du Sujet]</title>
 </head>
 <body>
-	<p>
-	----------Liste des discussions----------<br>
-		<c:forEach items="${discussions}" var="discussion">
-			<div class="discussion">
-				<div class="title">
-					<c:out value="${discussion.nom}" />
+	<div class="container">
+		<span>
+		----------Liste des discussions----------<br>
+			<c:forEach items="${discussions}" var="discussion">
+				<div class="discussion">
+					<div class="title">
+						<c:out value="${discussion.name}" />
+					</div>
+					<div class="length">
+						<c:out value="${discussion.length}"/>
+					</div>
 				</div>
-			</div>
-		</c:forEach>
-	</p>
-	<form method="get" action="newDiscussion">
-	    <fieldset>
-	        <legend>Topic</legend>
-	
-	        <label for="discussionName">Nom<span class="requis">*</span></label>
-	        <input type="text" name="discussionName" value="" size="40" maxlength="20"/>
-	        <br/>
-	        
-	    </fieldset>
-	    <input type="submit" value="Ajouter"/>
-	</form>
+			</c:forEach>
+		</span>
+		<form method="get" action="newDiscussion">
+		    <fieldset>
+		        <legend>Topic</legend>
+		
+		        <label for="discussionName">Nom<span class="requis">*</span></label>
+		        <input type="text" name="discussionName" value="" size="40" maxlength="20"/>
+		        <br/>
+		        
+		    </fieldset>
+		    <input type="submit" value="Ajouter"/>
+		</form>
 </body>
 </html>
