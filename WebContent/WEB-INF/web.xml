@@ -12,4 +12,13 @@
 <!-- 		<servlet-name>Prof</servlet-name> -->
 <!-- 		<url-pattern>/prof</url-pattern> -->
 <!-- 	</servlet-mapping> -->
+	<jsp-config>
+		<jsp-property-group>
+			<url-pattern>*.jsp</url-pattern>
+			<include-prelude>/WEB-INF/ressource/header.jsp</include-prelude>
+		</jsp-property-group>
+	</jsp-config>
+	<welcome-file-list>  
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list> 
 </web-app>
