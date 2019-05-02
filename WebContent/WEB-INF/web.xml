@@ -28,6 +28,30 @@
 		<servlet-name>ConnexionForum</servlet-name>
 		<url-pattern>/connexion-forum</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>Identification</servlet-name>
+		<servlet-class>servlets.Identification</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Identification</servlet-name>
+		<url-pattern>/identification</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>Connexion</servlet-name>
+		<servlet-class>servlets.Connexion</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Connexion</servlet-name>
+		<url-pattern>/connexion</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>Subscribe</servlet-name>
+		<servlet-class>servlets.Subscribe</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Subscribe</servlet-name>
+		<url-pattern>/subscribe</url-pattern>
+	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Forum</servlet-name>
 		<url-pattern>/forum</url-pattern>
