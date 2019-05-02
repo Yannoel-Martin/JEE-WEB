@@ -15,4 +15,13 @@ public class Topic {
 
     /** List of all {@link Discussion discussions}. */
     private List<Discussion> discussions;
+    
+    public Topic () {
+    	
+    }
+    
+    public Topic (Long id, String name) {
+    	this.id = id;
+    	this.name = name;
+    }
 }
