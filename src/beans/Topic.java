@@ -8,7 +8,7 @@ import lombok.Data;
 public class Topic {
 
     /** Unique id. */
-    private Integer id;
+    private Long id;
 
     /** Name. */
     private String name;

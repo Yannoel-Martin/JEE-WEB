@@ -3,10 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- import des link -->
-	<%@include file="ressource/header_link-bootstrap.html" %>
-	<meta charset="ISO-8859-1">
-	<title>JEE-WEB Forum</title>
+<meta charset="ISO-8859-1">
+<title>Connexion/Inscription</title>
 </head>
 <body>
 <br>
