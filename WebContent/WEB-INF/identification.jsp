@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="navigation">
-	<h1 class="h3 mb-0"><a href="forum.jsp">JEE-WEB Forum</a></h1>
+	<h1 class="h3 mb-0"><a href="/JEE-WEB/connexion-forum">JEE-WEB Forum</a></h1>
 </div>
 
 <style>
@@ -31,10 +31,10 @@
 					<div class="card-body">
 						<form method="post" action="subscribe">
 						  <div class="form-group">
-						    <input type="text" class="form-control" id="login_ins" placeholder="Login">
+						    <input type="text" class="form-control" id="login_ins" placeholder="Login (requis)">
 						  </div>
 						  <div class="form-group">
-						    <input type="password" class="form-control" id="password_ins" placeholder="Password">
+						    <input type="password" class="form-control" id="password_ins" placeholder="Password (requis)">
 						  </div>
 						  <div class="form-group">
 						    <div class="form-check">
@@ -66,10 +66,10 @@
 					<div class="card-body">
 						<form method="post" action="connexion">
 							<div class="form-group">
-								<input type="text" class="form-control" id="login_con" placeholder="Login">
+								<input type="text" class="form-control" id="login_con" placeholder="Login (requis)">
 							</div>
 							<div class="form-group">
-								<input type="password" class="form-control" id="password_con" placeholder="Password">
+								<input type="password" class="form-control" id="password_con" placeholder="Password (requis)">
 							</div>
 							<div class="form-group">
 								<button type="submit" class="btn btn-primary">Envoyer <i class="fa fa-location-arrow"></i></button>

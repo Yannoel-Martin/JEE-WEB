@@ -11,30 +11,35 @@
 <body>
 	<%@include file="ressource/navigation.html" %>
 	<div class="container">
-	<span>
-	----------Liste des topics----------<br>
-		<c:forEach items="${topics}" var="topic">
-			<div class="topic">
-				<div class="title">
-					<c:out value="${topic.name}"/>
+		<div id="topics">
+			<c:forEach items="${topics}" var="topic">
+				<div class="topic">
+					<div class="title">
+						<c:out value="${topic.name}"/>
+					</div>
+					<div class="length">
+						<c:out value="${topic.length}"/>
+					</div>
 				</div>
-				<div class="length">
-					<c:out value="${topic.length}"/>
-				</div>
+			</c:forEach>
+		</div>
+		<br>
+		<div class="card">
+			<div class="card-header">
+				<p>Topic</p>	
 			</div>
-		</c:forEach>
-	</span>
-	<form method="get" action="newTopic">
-	    <fieldset>
-	        <legend>Topic</legend>
-	
-	        <label for="topicName">Nom<span class="requis">*</span></label>
-	        <input type="text" name="topicName" value="" size="20" maxlength="20"/>
-	        <br/>
-	        
-	    </fieldset>
-	    <input type="submit" value="Ajouter"/>
-	</form>
+			<div class="card-body">
+				<form method="get" action="newTopic">
+					<div class="form-group">
+				        <input type="text" class="form-control" name="topicName" value="" size="20" maxlength="20" placeholder="Nom du topic (requis)"/>
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary">Ajouter</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<br>
 	</div>
 	
 	<%@include file="ressource/footer.html" %>
