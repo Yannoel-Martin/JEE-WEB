@@ -1,6 +1,3 @@
-DROP DATABASE IF EXISTS forum;
-CREATE DATABASE forum;
-
 -- object: public.forum | type: TABLE --
 -- DROP TABLE IF EXISTS public.forum CASCADE;
 CREATE TABLE public.forum(
@@ -15,10 +12,10 @@ ALTER TABLE public.forum OWNER TO postgres;
 -- object: public.topic | type: TABLE --
 -- DROP TABLE IF EXISTS public.topic CASCADE;
 CREATE TABLE public.topic(
-    id_topic serial NOT NULL,
+    id serial NOT NULL,
     name varchar(255),
     id_forum integer,
-    CONSTRAINT id PRIMARY KEY (id_topic)
+    CONSTRAINT id_topic PRIMARY KEY (id)
 
 );
 -- ddl-end --
@@ -31,7 +28,7 @@ CREATE TABLE public.discussion(
     id serial NOT NULL,
     name varchar(255),
     status smallint,
-    id_topic_topic integer,
+    id_topic integer,
     CONSTRAINT id_discussion PRIMARY KEY (id)
 
 );
@@ -44,9 +41,9 @@ ALTER TABLE public.discussion OWNER TO postgres;
 CREATE TABLE public.message(
     id serial NOT NULL,
     content text,
-    "sentAt" date,
+    sent_at date,
     id_discussion integer,
-    id_user integer,
+    id_user_forum integer,
     CONSTRAINT message_id PRIMARY KEY (id)
 
 );
@@ -54,9 +51,9 @@ CREATE TABLE public.message(
 ALTER TABLE public.message OWNER TO postgres;
 -- ddl-end --
 
--- object: public."user" | type: TABLE --
--- DROP TABLE IF EXISTS public."user" CASCADE;
-CREATE TABLE public."user"(
+-- object: public.user_forum | type: TABLE --
+-- DROP TABLE IF EXISTS public.user_forum CASCADE;
+CREATE TABLE public.user_forum(
     id serial NOT NULL,
     name varchar(255),
     password varchar(255),
@@ -65,7 +62,7 @@ CREATE TABLE public."user"(
 
 );
 -- ddl-end --
-ALTER TABLE public."user" OWNER TO postgres;
+ALTER TABLE public.user_forum OWNER TO postgres;
 -- ddl-end --
 
 -- object: forum_fk | type: CONSTRAINT --
@@ -77,8 +74,8 @@ ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- object: topic_fk | type: CONSTRAINT --
 -- ALTER TABLE public.discussion DROP CONSTRAINT IF EXISTS topic_fk CASCADE;
-ALTER TABLE public.discussion ADD CONSTRAINT topic_fk FOREIGN KEY (id_topic_topic)
-REFERENCES public.topic (id_topic) MATCH FULL
+ALTER TABLE public.discussion ADD CONSTRAINT topic_fk FOREIGN KEY (id_topic)
+REFERENCES public.topic (id) MATCH FULL
 ON DELETE SET NULL ON UPDATE CASCADE;
 -- ddl-end --
 
@@ -89,10 +86,10 @@ REFERENCES public.discussion (id) MATCH FULL
 ON DELETE SET NULL ON UPDATE CASCADE;
 -- ddl-end --
 
--- object: user_fk | type: CONSTRAINT --
--- ALTER TABLE public.message DROP CONSTRAINT IF EXISTS user_fk CASCADE;
-ALTER TABLE public.message ADD CONSTRAINT user_fk FOREIGN KEY (id_user)
-REFERENCES public."user" (id) MATCH FULL
+-- object: user_forum_fk | type: CONSTRAINT --
+-- ALTER TABLE public.message DROP CONSTRAINT IF EXISTS user_forum_fk CASCADE;
+ALTER TABLE public.message ADD CONSTRAINT user_forum_fk FOREIGN KEY (id_user_forum)
+REFERENCES public.user_forum (id) MATCH FULL
 ON DELETE SET NULL ON UPDATE CASCADE;
 -- ddl-end --
 

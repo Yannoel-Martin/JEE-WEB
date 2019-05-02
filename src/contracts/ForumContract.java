@@ -9,6 +9,9 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class ForumContract {
 
+    /** Table. */
+    public static final String TABLE = "forum";
+
     /** Unique id. */
-    public static final String ID = "id_forum";
+    public static final String ID = "id";
 }

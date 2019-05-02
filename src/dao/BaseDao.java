@@ -1,8 +1,8 @@
 package dao;
 
-import connectors.ConnectionFactory;
 import lombok.AccessLevel;
 import lombok.Getter;
+import services.ConnectionFactory;
 
 /**
  * Base DAO.

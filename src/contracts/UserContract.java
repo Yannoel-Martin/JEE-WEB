@@ -18,6 +18,6 @@ public class UserContract {
     /** Password of the {@link User}. */
     public static final String PASSWORD = "password";
 
-    /** TODO: Update model. */
+    /** Role. */
     public static final String ROLE = "role";
 }

@@ -17,9 +17,6 @@
 					<div class="title">
 						<c:out value="${topic.name}"/>
 					</div>
-					<div class="length">
-						<c:out value="${topic.length}"/>
-					</div>
 				</div>
 			</c:forEach>
 		</div>

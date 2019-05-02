@@ -1,4 +1,4 @@
-package connectors;
+package services;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -6,12 +6,15 @@ import java.sql.SQLException;
 import org.postgresql.jdbc.PgConnection;
 
 import exceptions.ConfigurationException;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 /**
  * Class to access database.
  *
  * Grants the access to a {@link PgConnection}.
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ConnectionFactory {
 
     /** Connection URL. */
@@ -61,7 +64,4 @@ public class ConnectionFactory {
                 ConnectionFactory.PROPERTY_USER,
                 ConnectionFactory.PROPERTY_PASSWORD);
     }
-
-    /** Constructor. */
-    private ConnectionFactory() {}
 }
