@@ -3,12 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<c:import url="header_link-bootstrap.html" />
+<%@include file="WEB-INF/ressource/header_link-bootstrap.html" %>
 <meta charset="ISO-8859-1">
 <title>JEE-WEB Forum</title>
 </head>
 <body>
+	<button class="btn-btn-primary">test</button>
 	 Test
-<c:import url="source-bootstrap.html" />
+<%@include file="WEB-INF/ressource/source-bootstrap.html" %>
 </body>
 </html>
