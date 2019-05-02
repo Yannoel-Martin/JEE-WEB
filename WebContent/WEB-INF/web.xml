@@ -4,21 +4,23 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
-<!-- 	<servlet> -->
-<!-- 		<servlet-name>Prof</servlet-name> -->
-<!-- 		<servlet-class>servlets.CreationProf</servlet-class> -->
-<!-- 	</servlet> -->
-<!-- 	<servlet-mapping> -->
-<!-- 		<servlet-name>Prof</servlet-name> -->
-<!-- 		<url-pattern>/prof</url-pattern> -->
-<!-- 	</servlet-mapping> -->
+	<welcome-file-list>  
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list> 
+	
+	<servlet>
+		<servlet-name>ConnexionForum</servlet-name>
+		<servlet-class>servlets.ConnexionForum</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ConnexionForum</servlet-name>
+		<url-pattern>/connexion-forum</url-pattern>
+	</servlet-mapping>
 	<jsp-config>
 		<jsp-property-group>
 			<url-pattern>*.jsp</url-pattern>
 			<include-prelude>/WEB-INF/ressource/header.jsp</include-prelude>
 		</jsp-property-group>
 	</jsp-config>
-	<welcome-file-list>  
-		<welcome-file>index.jsp</welcome-file>
-	</welcome-file-list> 
+	
 </web-app>
