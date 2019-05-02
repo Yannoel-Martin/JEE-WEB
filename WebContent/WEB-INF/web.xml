@@ -16,8 +16,8 @@
 		<servlet-class>servlets.ForumServlet</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>Topic</servlet-name>
-		<servlet-class>servlets.Topic</servlet-class>
+		<servlet-name>TopicServlet</servlet-name>
+		<servlet-class>servlets.TopicServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>Discussion</servlet-name>
@@ -57,7 +57,7 @@
 		<url-pattern>/forum</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>Topic</servlet-name>
+		<servlet-name>TopicServlet</servlet-name>
 		<url-pattern>/topic</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>

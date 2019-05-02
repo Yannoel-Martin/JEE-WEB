@@ -26,7 +26,7 @@ public class ForumServlet extends HttpServlet {
 	    // TODO: Fetch forum.
 	    final Forum forum = new Forum();
 
-	    forum.setId(1);
+	    forum.setId(1L);
 
 	    final List<Topic> topics = this.dao.findAll(forum);
 

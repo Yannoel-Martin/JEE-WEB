@@ -27,7 +27,7 @@ public final class GeneralTopicDao extends BaseDao implements TopicDao {
         final List<Topic> topics = new ArrayList<>();
 
         try {
-            final PgConnection connection = this.getConnector().getConnection();
+            final PgConnection connection = this.getFactory().getConnection();
 
             final PreparedStatement statement = connection.prepareStatement(GeneralTopicDao.SELECT_ALL_REQUEST);
             statement.setLong(1, forum.getId());

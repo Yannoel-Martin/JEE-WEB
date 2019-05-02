@@ -1,6 +1,6 @@
 package dao;
 
-import connectors.Database;
+import connectors.ConnectionFactory;
 import lombok.AccessLevel;
 import lombok.Getter;
 
@@ -11,10 +11,10 @@ public class BaseDao {
 
     /** Connector to access database. */
     @Getter(value = AccessLevel.PROTECTED)
-    private final Database connector;
+    private final ConnectionFactory factory;
 
     /** Protected constructor. */
     protected BaseDao() {
-        this.connector = Database.instance();
+        this.factory = ConnectionFactory.getInstance();
     }
 }
