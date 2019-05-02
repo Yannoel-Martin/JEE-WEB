@@ -11,6 +11,7 @@ import org.postgresql.jdbc.PgResultSet;
 import beans.Forum;
 import beans.Topic;
 import contracts.TopicContract;
+import exceptions.NotFoundException;
 
 /**
  * DAO to access {@link Topic}.
@@ -20,6 +21,10 @@ public final class GeneralTopicDao extends BaseDao implements TopicDao {
     /** Request to fetch all the {@link Topic topics}. */
     private static final String SELECT_ALL_REQUEST = "SELECT * FROM " + TopicContract.TABLE
             + " WHERE " + TopicContract.ID_FORUM + " = ?";
+
+    /** Request to get one {@link Topic topic}. */
+    private static final String FIND_ONE_REQUEST = "SELECT * FROM " + TopicContract.TABLE
+            + " WHERE " + TopicContract.ID + " = ?";
 
     @Override
     public List<Topic> findAll(final Forum forum) {
@@ -46,6 +51,31 @@ public final class GeneralTopicDao extends BaseDao implements TopicDao {
         }
 
         return topics;
+    }
+
+    @Override
+    public Topic findById(final Long id) throws NotFoundException {
+        final Topic topic;
+
+        try {
+            final PreparedStatement statement = this.getFactory().getConnection()
+                    .prepareStatement(GeneralTopicDao.FIND_ONE_REQUEST);
+
+            statement.setLong(1, id);
+
+            final PgResultSet result = (PgResultSet) statement.executeQuery();
+
+            if (!result.next()) {
+                throw new NotFoundException("Topic with id " + id + " doesn't exist.");
+            }
+
+            topic = this.map(result);
+
+        } catch (final SQLException e) {
+            throw new NotFoundException("An error occurred with the SQL request.");
+        }
+
+        return topic;
     }
 
     /**

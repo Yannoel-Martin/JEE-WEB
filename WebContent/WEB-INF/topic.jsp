@@ -15,9 +15,6 @@
 					<div class="title">
 						<c:out value="${discussion.name}" />
 					</div>
-					<div class="length">
-						<c:out value="${discussion.length}"/>
-					</div>
 				</div>
 			</c:forEach>
 		</span>

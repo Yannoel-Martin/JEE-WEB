@@ -2,19 +2,29 @@ package dao;
 
 import java.util.List;
 
-import beans.Forum;
+import beans.Discussion;
 import beans.Topic;
+import exceptions.NotFoundException;
 
 /**
- * DAO to manipulate {@link Topic} entities.
+ * DAO to manipulate {@link Discussion} entities.
  */
 public interface DiscussionDao {
 
     /**
-     * Finds all the {@link Topic} of the given {@link Forum}.
+     * Finds all the {@link Discussion} of the given {@link Topic}.
      *
-     * @param forum
-     * @return list of topics
+     * @param topic
+     * @return list of discussions
      */
-    List<Topic> findAll(Forum forum);
+    List<Discussion> findAll(Topic topic);
+
+    /**
+     * Finds a {@link Discussion} by its id.
+     *
+     * @param id
+     * @return
+     * @throws NotFoundException
+     */
+    Discussion findById(Long id) throws NotFoundException;
 }

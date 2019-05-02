@@ -20,8 +20,8 @@
 		<servlet-class>servlets.TopicServlet</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>Discussion</servlet-name>
-		<servlet-class>servlets.Discussion</servlet-class>
+		<servlet-name>DiscussionServlet</servlet-name>
+		<servlet-class>servlets.DiscussionServlet</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
@@ -58,11 +58,11 @@
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>TopicServlet</servlet-name>
-		<url-pattern>/topic</url-pattern>
+		<url-pattern>/topic/*</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>Discussion</servlet-name>
-		<url-pattern>/discussion</url-pattern>
+		<servlet-name>DiscussionServlet</servlet-name>
+		<url-pattern>/discussion/*</url-pattern>
 	</servlet-mapping>
 	
 	<jsp-config>
