@@ -23,5 +23,16 @@
 			</div>
 		</c:forEach>
 	</p>
+	<form method="get" action="newMessage">
+	    <fieldset>
+	        <legend>Message</legend>
+	
+	        <label for="messageBody"><span class="requis">*</span></label>
+	        <input type="text" name="messageBody" value="" size="80" maxlength="20"/>
+	        <br/>
+	        
+	    </fieldset>
+	    <input type="submit" value="Répondre"/>
+	</form>
 </body>
 </html>
