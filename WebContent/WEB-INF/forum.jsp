@@ -1,26 +1,28 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
+<title>JEE-WEB Forum</title>
 	<!-- import des link -->
 	<%@include file="ressource/header_link-bootstrap.html" %>
 	<meta charset="ISO-8859-1">
-	<title>JEE-WEB Forum</title>
+	
 </head>
 <body>
-	<div class="d-flex justify-content-between navigation">
-		<a href="forum.jsp"><h1 class="h3">JEE-WEB Forum</h1></a>
-		<a onclick="deconnexion();"><img src="ressource/logout.png"></a>
-	</div>
-	<script>
-		function deconnexion() {
-			//log out
-		}
-	</script>
+	<%@include file="ressource/navigation.html" %>
 	
 	<div class="container">
+		<!-- Sujets de discussions -->
+		<div></div>
 	</div>
+<!-- 	<c:forEach> -->
+		
+<!-- 	</c:forEach> -->
+<!-- 	<button class="btn btn-primary"></button> -->
+	
+<!-- 	<footer>2019 - JEE-WEB Forum</footer> -->
 	<!-- import du script -->
 	<%@include file="ressource/source-bootstrap.html" %>
 </body>
