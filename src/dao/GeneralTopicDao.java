@@ -11,7 +11,6 @@ import org.postgresql.jdbc.PgResultSet;
 import beans.Forum;
 import beans.Topic;
 import contracts.TopicContract;
-import utils.RequestBuilder;
 
 /**
  * DAO to access {@link Topic}.
@@ -21,8 +20,6 @@ public final class GeneralTopicDao extends BaseDao implements TopicDao {
     /** Request to fetch all the {@link Topic topics}. */
     private static final String SELECT_ALL_REQUEST = "SELECT * FROM " + TopicContract.TABLE
             + " WHERE " + TopicContract.ID_FORUM + " = ?";
-
-    private final String INSERT_REQUEST = String.format("INSERT INTO %s(", args)
 
     @Override
     public List<Topic> findAll(final Forum forum) {
@@ -46,13 +43,6 @@ public final class GeneralTopicDao extends BaseDao implements TopicDao {
         }
 
         return topics;
-    }
-
-    public void insert(final Topic topic) {
-
-        final String request = RequestBuilder.insert(TopicContract.TABLE, (String[]) {
-            "", "", ""
-        });
     }
 
     /**
