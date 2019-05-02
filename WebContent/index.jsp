@@ -9,7 +9,7 @@
 	<title>JEE-WEB Forum</title>
 </head>
 <body>
-	<jsp:forward page="/WEB-INF/forum.jsp" />
+	<jsp:forward page="/connexion-forum" />
 	<!-- import du script -->
 	<%@include file="WEB-INF/ressource/source-bootstrap.html" %>
 </body>

@@ -4,14 +4,14 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
-<!-- 	<servlet> -->
-<!-- 		<servlet-name>Prof</servlet-name> -->
-<!-- 		<servlet-class>servlets.CreationProf</servlet-class> -->
-<!-- 	</servlet> -->
-<!-- 	<servlet-mapping> -->
-<!-- 		<servlet-name>Prof</servlet-name> -->
-<!-- 		<url-pattern>/prof</url-pattern> -->
-<!-- 	</servlet-mapping> -->
+	<servlet>
+		<servlet-name>Connexion_Forum</servlet-name>
+		<servlet-class>servlets.CreationProf</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Connexion_Forum</servlet-name>
+		<url-pattern>/connexion-forum</url-pattern>
+	</servlet-mapping>
 	<jsp-config>
 		<jsp-property-group>
 			<url-pattern>*.jsp</url-pattern>

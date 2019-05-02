@@ -15,14 +15,19 @@
 	
 	<div class="container">
 		<!-- Sujets de discussions -->
-		<div></div>
+		<div>
+		</div>
+		<!-- Actualités -->
+		<div>
+		</div>
 	</div>
 <!-- 	<c:forEach> -->
 		
 <!-- 	</c:forEach> -->
 <!-- 	<button class="btn btn-primary"></button> -->
 	
-<!-- 	<footer>2019 - JEE-WEB Forum</footer> -->
+	<%@include file="ressource/footer.html" %>
+	
 	<!-- import du script -->
 	<%@include file="ressource/source-bootstrap.html" %>
 </body>
