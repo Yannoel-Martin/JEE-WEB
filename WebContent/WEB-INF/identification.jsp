@@ -3,10 +3,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Connexion/Inscription</title>
+	<!-- import du link -->
+	<%@include file="ressource/header_link-bootstrap.html" %>
+	<meta charset="ISO-8859-1">
+	<title>Connexion/Inscription</title>
 </head>
 <body>
+<div class="navigation">
+	<h1 class="h3 mb-0"><a href="forum.jsp">JEE-WEB Forum</a></h1>
+</div>
+
+<style>
+	.navigation { width: 100%; border-bottom: 1px solid black; }
+	.navigation h1 { padding: 2px 0px 0px 8px; }
+	.navigation a { color: black; }
+	.navigation a:hover { text-decoration: none; }
+</style>
 <br>
 	<div class="container">
 		<div class="row">
@@ -19,10 +31,24 @@
 					<div class="card-body">
 						<form method="post" action="subscribe">
 						  <div class="form-group">
-						    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Login">
+						    <input type="text" class="form-control" id="login_ins" placeholder="Login">
 						  </div>
 						  <div class="form-group">
-						    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+						    <input type="password" class="form-control" id="password_ins" placeholder="Password">
+						  </div>
+						  <div class="form-group">
+						    <div class="form-check">
+							  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="1" checked>
+							  <label class="form-check-label" for="exampleRadios1">
+							    Utilisateur
+							  </label>
+							</div>
+							<div class="form-check">
+							  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="2">
+							  <label class="form-check-label" for="exampleRadios2">
+							    Administrateur
+							  </label>
+							</div>
 						  </div>
 						  <div class="form-group">
 							  <button type="submit" class="btn btn-primary">Envoyer <i class="fa fa-location-arrow"></i></button>
@@ -40,10 +66,10 @@
 					<div class="card-body">
 						<form method="post" action="connexion">
 							<div class="form-group">
-								<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Login">
+								<input type="text" class="form-control" id="login_con" placeholder="Login">
 							</div>
 							<div class="form-group">
-								<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+								<input type="password" class="form-control" id="password_con" placeholder="Password">
 							</div>
 							<div class="form-group">
 								<button type="submit" class="btn btn-primary">Envoyer <i class="fa fa-location-arrow"></i></button>
