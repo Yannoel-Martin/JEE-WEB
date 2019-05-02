@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Sujet - [Nom du Sujet]</title>
+<title>Topic - [Nom du Sujet]</title>
 </head>
 <body>
 	<p>
@@ -17,5 +17,16 @@
 			</div>
 		</c:forEach>
 	</p>
+	<form method="get" action="newDiscussion">
+	    <fieldset>
+	        <legend>Topic</legend>
+	
+	        <label for="discussionName">Nom<span class="requis">*</span></label>
+	        <input type="text" name="discussionName" value="" size="40" maxlength="20"/>
+	        <br/>
+	        
+	    </fieldset>
+	    <input type="submit" value="Ajouter"/>
+	</form>
 </body>
 </html>

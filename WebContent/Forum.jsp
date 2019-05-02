@@ -8,14 +8,25 @@
 </head>
 <body>
 	<p>
-	----------Liste des sujets----------<br>
-		<c:forEach items="${sujets}" var=sujet>
-			<div class="sujet">
+	----------Liste des topics----------<br>
+		<c:forEach items="${topics}" var="topic">
+			<div class="topic">
 				<div class="title">
-					<c:out value="${sujet.nom}" />
+					<c:out value="${topic.nom}" />
 				</div>
 			</div>
 		</c:forEach>
 	</p>
+	<form method="get" action="newTopic">
+	    <fieldset>
+	        <legend>Topic</legend>
+	
+	        <label for="topicName">Nom<span class="requis">*</span></label>
+	        <input type="text" name="topicName" value="" size="20" maxlength="20"/>
+	        <br/>
+	        
+	    </fieldset>
+	    <input type="submit" value="Ajouter"/>
+	</form>
 </body>
 </html>
