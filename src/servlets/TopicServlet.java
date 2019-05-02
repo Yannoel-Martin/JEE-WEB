@@ -7,11 +7,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class Topic extends HttpServlet {
+public class TopicServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 7278965144281191677L;
 
-	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+	@Override
+    protected void doGet(final HttpServletRequest req, final HttpServletResponse res) throws ServletException, IOException {
 
 		this.getServletContext().getRequestDispatcher("/WEB-INF/topic.jsp").forward(req, res);
 	}

@@ -20,5 +20,5 @@ public class TopicContract {
     public static final String NAME = "name";
 
     /** {@link Forum} that owns the {@link Topic}. */
-    public static final String ID_FORUM = "id_topic";
+    public static final String ID_FORUM = "id_forum";
 }

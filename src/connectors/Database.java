@@ -3,6 +3,8 @@ package connectors;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import org.postgresql.jdbc.PgConnection;
+
 import com.mysql.jdbc.Connection;
 
 /**
@@ -13,10 +15,10 @@ import com.mysql.jdbc.Connection;
 public class Database {
 
     /** URL to MySQL database. */
-    private static final String MYSQL_URL = "jdbc:mysql://localhost:3306/forum";
+    private static final String MYSQL_URL = "jdbc:postgresql://localhost:5432/forum";
 
     /** User which has access to the database. */
-    private static final String USER = "root";
+    private static final String USER = "postgres";
 
     /** Password of the user. */
     private static final String PASSWORD = "password";
@@ -25,7 +27,7 @@ public class Database {
     private static Database DATABASE_INSTANCE;
 
     /** Connection to the database. */
-    private Connection connection;
+    private PgConnection connection;
 
     /**
      * Returns the unique instance of the Database.
@@ -43,20 +45,27 @@ public class Database {
     /** Inner constructor. */
     private Database() {
         try {
-            this.connection = (Connection) DriverManager.getConnection(Database.MYSQL_URL, Database.USER,
+            Class.forName("org.postgresql.Driver");
+        } catch ( final ClassNotFoundException e ) {
+            /* Gérer les éventuelles erreurs ici. */
+        }
+
+        try {
+            this.connection = (PgConnection) DriverManager.getConnection(Database.MYSQL_URL, Database.USER,
                     Database.PASSWORD);
 
         } catch (final SQLException e) {
+            System.out.println(e.getMessage());
             // TODO: Handle errors.
         }
     }
 
     /**
-     * {@link Connection} accessor.
+     * {@link PgConnection} accessor.
      *
      * @return the connection.
      */
-    public Connection getConnection() {
+    public PgConnection getConnection() {
         return this.connection;
     }
 
