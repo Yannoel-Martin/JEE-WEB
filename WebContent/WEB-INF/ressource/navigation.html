@@ -1,20 +1,19 @@
 <div class="d-flex justify-content-between navigation">
 	<h1 class="h3 mb-0"><a href="forum.jsp">JEE-WEB Forum</a></h1>
 	<a href="#" onclick="deconnexion();">
-		<span><!-- ${} --><i class="fa fa-power-off"></i></span>
+		<span>${user.name}<i class="fa fa-power-off"></i></span>
 	</a>
 </div>
 
 <style>
 	.navigation { width: 100%; border-bottom: 1px solid black; }
 	.navigation h1 { padding: 2px 0px 0px 8px; }
-	.navigation h1 a { color: black; }
-	.navigation h1 a:hover { text-decoration: none; }
+	.navigation a { color: black; }
+	.navigation a:hover { text-decoration: none; }
 	.navigation a i { font-size:25px; color:red; margin: 8px; }
 </style>
 <script>
 	function deconnexion() {
 		console.log("log out !");
-		//log out
 	}
 </script>

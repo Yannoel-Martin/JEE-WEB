@@ -14,11 +14,13 @@
 	<div class="container">
 		<!-- Sujets de discussions -->
 		<div>
-<%-- 			<c:forEach items="topics" var="topic"> --%>
-<!-- 				<div class="topic"> -->
-					
-<!-- 				</div> -->
-<%-- 			</c:forEach> --%>
+			<c:forEach items="topics" var="topic">
+				<div class="topic">
+					<div class="title">
+<%-- 						<c:out value="${topic.nom}" /> --%>
+					</div>
+				</div>
+			</c:forEach>
 		</div>
 		<!-- Actualités -->
 		<div>
