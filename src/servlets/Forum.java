@@ -15,6 +15,7 @@ public class Forum extends HttpServlet {
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
+		String topics = req.getParameter("topics");
 		this.getServletContext().getRequestDispatcher("/WEB-INF/forum.jsp").forward(req, res);
 	}
 }

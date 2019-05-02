@@ -13,6 +13,7 @@ public class Topic extends HttpServlet {
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
+		String discussions = req.getParameter("discussions");
 		this.getServletContext().getRequestDispatcher("/WEB-INF/topic.jsp").forward(req, res);
 	}
 }

@@ -11,6 +11,7 @@ public class Discussion extends HttpServlet {
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
+		String messages = req.getParameter("messages");
 		this.getServletContext().getRequestDispatcher("/WEB-INF/discussion.jsp").forward(req, res);
 	}
 }

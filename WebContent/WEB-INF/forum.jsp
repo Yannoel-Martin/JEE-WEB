@@ -10,21 +10,31 @@
 </head>
 <body>
 	<%@include file="ressource/navigation.html" %>
-	
 	<div class="container">
-		<!-- Sujets de discussions -->
-		<div>
-			<c:forEach items="topics" var="topic">
-				<div class="topic">
-					<div class="title">
-<%-- 						<c:out value="${topic.nom}" /> --%>
-					</div>
+	<span>
+	----------Liste des topics----------<br>
+		<c:forEach items="${topics}" var="topic">
+			<div class="topic">
+				<div class="title">
+					<c:out value="${topic.name}"/>
 				</div>
-			</c:forEach>
-		</div>
-		<!-- Actualités -->
-		<div>
-		</div>
+				<div class="length">
+					<c:out value="${topic.length}"/>
+				</div>
+			</div>
+		</c:forEach>
+	</span>
+	<form method="get" action="newTopic">
+	    <fieldset>
+	        <legend>Topic</legend>
+	
+	        <label for="topicName">Nom<span class="requis">*</span></label>
+	        <input type="text" name="topicName" value="" size="20" maxlength="20"/>
+	        <br/>
+	        
+	    </fieldset>
+	    <input type="submit" value="Ajouter"/>
+	</form>
 	</div>
 	
 	<%@include file="ressource/footer.html" %>
