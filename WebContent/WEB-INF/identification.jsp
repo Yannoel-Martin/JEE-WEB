@@ -23,7 +23,7 @@
 	    <input type="submit" value="Se connecter"/>
 	</form>
 	
-	<form method="get" action="Register">
+	<form method="get" action="register">
 	    <fieldset>
 	        <legend>Inscription</legend>
 	

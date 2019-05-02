@@ -9,7 +9,7 @@
 <body>
 	<p>
 	----------Liste des messages----------<br>
-		<c:forEach items="${messages}" var=message>
+		<c:forEach items="${messages}" var="message">
 			<div class="message">
 				<div class="title">
 					<c:out value="${message.utilisateur.nom}" />

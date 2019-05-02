@@ -9,7 +9,7 @@
 <body>
 	<p>
 	----------Liste des discussions----------<br>
-		<c:forEach items="${discussions}" var=discussion>
+		<c:forEach items="${discussions}" var="discussion">
 			<div class="discussion">
 				<div class="title">
 					<c:out value="${discussion.nom}" />

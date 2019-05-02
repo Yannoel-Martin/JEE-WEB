@@ -12,10 +12,36 @@
 		<servlet-name>ConnexionForum</servlet-name>
 		<servlet-class>servlets.ConnexionForum</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>Forum</servlet-name>
+		<servlet-class>servlets.Forum</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Topic</servlet-name>
+		<servlet-class>servlets.Topic</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Discussion</servlet-name>
+		<servlet-class>servlets.Discussion</servlet-class>
+	</servlet>
+	
 	<servlet-mapping>
 		<servlet-name>ConnexionForum</servlet-name>
 		<url-pattern>/connexion-forum</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Forum</servlet-name>
+		<url-pattern>/forum</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Topic</servlet-name>
+		<url-pattern>/topic</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Discussion</servlet-name>
+		<url-pattern>/discussion</url-pattern>
+	</servlet-mapping>
+	
 	<jsp-config>
 		<jsp-property-group>
 			<url-pattern>*.jsp</url-pattern>
