@@ -4,12 +4,16 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
+	<welcome-file-list>  
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list> 
+	
 	<servlet>
-		<servlet-name>Connexion_Forum</servlet-name>
-		<servlet-class>servlets.CreationProf</servlet-class>
+		<servlet-name>ConnexionForum</servlet-name>
+		<servlet-class>servlets.ConnexionForum</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>Connexion_Forum</servlet-name>
+		<servlet-name>ConnexionForum</servlet-name>
 		<url-pattern>/connexion-forum</url-pattern>
 	</servlet-mapping>
 	<jsp-config>
@@ -18,7 +22,5 @@
 			<include-prelude>/WEB-INF/ressource/header.jsp</include-prelude>
 		</jsp-property-group>
 	</jsp-config>
-	<welcome-file-list>  
-		<welcome-file>index.jsp</welcome-file>
-	</welcome-file-list> 
+	
 </web-app>
