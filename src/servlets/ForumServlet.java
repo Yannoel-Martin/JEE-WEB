@@ -39,16 +39,18 @@ public final class ForumServlet extends BaseServlet {
     protected void doGet(final HttpServletRequest req, final HttpServletResponse res)
             throws ServletException, IOException {
 
-	   final Long id = this.getPathId(req);
+	   if (this.accessIsAuthorized(req, res, false)) {
+	       final Long id = this.getPathId(req);
 
-	   if (id == null) {
-	       this.redirect404(req, res);
-	   } else {
-	       try {
-	           this.loadView(req, res, this.forumDao.findById(id));
-
-	       } catch (final NotFoundException e) {
+	       if (id == null) {
 	           this.redirect404(req, res);
+	       } else {
+	           try {
+	               this.loadView(req, res, this.forumDao.findById(id));
+
+	           } catch (final NotFoundException e) {
+	               this.redirect404(req, res);
+	           }
 	       }
 	   }
 	}

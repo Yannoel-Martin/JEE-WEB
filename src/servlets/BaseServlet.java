@@ -10,17 +10,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import beans.User;
+import lombok.AccessLevel;
+import lombok.Getter;
+import services.Authentification;
 
 /**
  * Base servlet class.
  */
 public class BaseServlet extends HttpServlet {
 
+    /** Token attribute in the session. */
+    public static final String TOKEN_ATTR = "token";
+
     /** Serial number. */
     private static final long serialVersionUID = -1929195511182857136L;
 
     /** View to display on error. */
     private static final String VIEW_404 = "/WEB-INF/404.jsp";
+
+    /** Authentification service. */
+    @Getter(value = AccessLevel.PROTECTED)
+    private final Authentification authService = Authentification.getInstance();
 
     /**
      * Redirects to 404 page.
@@ -32,6 +42,32 @@ public class BaseServlet extends HttpServlet {
         try {
             this.getServletContext().getRequestDispatcher(BaseServlet.VIEW_404).forward(req, res);
         } catch (ServletException | IOException e) {}
+    }
+
+    /**
+     * Says if the access is authorized.
+     * @param req
+     * @param res
+     * @param adminRestricted
+     * @return
+     */
+    protected boolean accessIsAuthorized(final HttpServletRequest req, final HttpServletResponse res,
+            final Boolean adminRestricted) {
+
+        boolean authorized = false;
+
+        final String token = (String) req.getSession().getAttribute(BaseServlet.TOKEN_ATTR);
+
+        if (token != null) {
+            authorized = this.authService.validAccess(token, adminRestricted);
+        }
+
+        // Redirect:
+        if (!authorized) {
+            this.redirect404(req, res);
+        }
+
+        return authorized;
     }
 
     /**
