@@ -15,13 +15,16 @@
 	<div class="container">
 		<div class="card">
 			<div class="card-header">
-				<p>Statut de la discussion : ${discussion.status.id}
+				<p>Statut de la discussion :
 					<c:choose>
 						<c:when test="${discussion.status.id == 1}">
 							Ouvert
 						</c:when>
-						<c:otherwise>
+						<c:when test="${discussion.status.id == 2}">
 							Fermé
+						</c:when>
+						<c:otherwise>
+							En attente de validation
 						</c:otherwise>
 					</c:choose>
 				</p>	
