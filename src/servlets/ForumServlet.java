@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import beans.Forum;
 import beans.Topic;
+import beans.User;
 import dao.ForumDao;
 import dao.GeneralForumDao;
 import dao.GeneralTopicDao;

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import beans.Topic;
+import beans.User;
 import dao.DiscussionDao;
 import dao.GeneralDiscussionDao;
 import dao.GeneralTopicDao;
