@@ -39,17 +39,6 @@ public final class ValidationServlet extends BaseServlet {
 	@Override
     protected void doGet(final HttpServletRequest req, final HttpServletResponse res) throws ServletException, IOException {
 
-        final Long id = this.getPathId(req);
-
-        if (id != null) {
-            try {
-                final Discussion discussion = this.discussionDao.findById(id);
-
-                this.loadView(req, res, discussion);
-            } catch (final NotFoundException e) {
-
-            }
-        }
 	}
 
 	@Override
