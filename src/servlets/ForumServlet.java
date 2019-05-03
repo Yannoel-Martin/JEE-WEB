@@ -41,14 +41,12 @@ public final class ForumServlet extends BaseServlet {
 
 	   final Long id = this.getPathId(req);
 
-	   if (id == null) {
-	       this.redirect404(req, res);
-	   } else {
+	   if (id != null) {
 	       try {
 	           this.loadView(req, res, this.forumDao.findById(id));
 
 	       } catch (final NotFoundException e) {
-	           this.redirect404(req, res);
+
 	       }
 	   }
 	}
@@ -59,9 +57,7 @@ public final class ForumServlet extends BaseServlet {
 
         final Long id = this.getPathId(req);
 
-        if (id == null) {
-            this.redirect404(req, res);
-        } else {
+        if (id != null) {
             try {
                 final String topicName = req.getParameter("topicName");
                 final Forum forum = this.forumDao.findById(id);
@@ -71,7 +67,7 @@ public final class ForumServlet extends BaseServlet {
 
                 this.loadView(req, res, forum);
             } catch (final NotFoundException e) {
-                this.redirect404(req, res);
+
             }
         }
     }
@@ -92,7 +88,7 @@ public final class ForumServlet extends BaseServlet {
         try {
             this.getServletContext().getRequestDispatcher(VIEW).forward(req, res);
         } catch (ServletException | IOException e) {
-            this.redirect404(req, res);
+
         }
 	}
 }
