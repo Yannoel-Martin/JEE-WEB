@@ -87,10 +87,7 @@ docker container rm jee-app
 /connexion-forum
 /identification
 /connection
-/subscribe
 /forum/1
 /topic/1
 /discussion/1
-/topic
-/validation
-/discussion/1/close
+(attention a l'authentification)
