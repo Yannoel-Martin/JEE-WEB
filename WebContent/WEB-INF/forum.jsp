@@ -10,6 +10,7 @@
 </head>
 <body>
 	<%@include file="ressource/navigation.html" %>
+	<br>
 	<div class="container">
 		<div id="topics" class="card">
 			<div class="card-body">
