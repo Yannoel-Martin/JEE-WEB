@@ -32,6 +32,7 @@
 		.navigation a i { font-size:25px; color:red; margin: 8px; }
 	</style>
 
+	<br>
 	<div class="container">
 		<div class="card">
 			<div class="card-body">
