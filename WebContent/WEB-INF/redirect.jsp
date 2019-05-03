@@ -3,15 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- import des link -->
-	<%@include file="ressource/header_link-bootstrap.html" %>
 	<meta charset="ISO-8859-1">
-	<title>JEE-WEB Forum</title>
+	<title>Never display</title>
 </head>
 <body>
 <br>
-	<c:redirect><c:out value="/identification"/></c:redirect>
-	<!-- import du script -->
-	<%@include file="ressource/source-bootstrap.html" %>
+	<!-- NE PAS TOUCHER ! -->
+	<jsp:forward page="/identification" />
 </body>
 </html>
