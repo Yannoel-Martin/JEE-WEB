@@ -44,12 +44,7 @@ public final class ForumServlet extends BaseServlet {
 	       this.redirect404(req, res);
 	   } else {
 	       try {
-	           final Forum forum = this.forumDao.findById(id);
-
-	           req.setAttribute(ForumServlet.FORUM_INFOS, forum);
-	           req.setAttribute(ForumServlet.LIST_TOPICS, this.topicDao.findAll(forum));
-
-	           this.getServletContext().getRequestDispatcher(VIEW).forward(req, res);
+	           this.loadView(req, res, this.forumDao.findById(id));
 
 	       } catch (final NotFoundException e) {
 	           this.redirect404(req, res);
@@ -57,5 +52,44 @@ public final class ForumServlet extends BaseServlet {
 	   }
 	}
 
+    @Override
+    protected void doPost(final HttpServletRequest req, final HttpServletResponse res)
+            throws ServletException, IOException {
 
+        final Long id = this.getPathId(req);
+
+        if (id == null) {
+            this.redirect404(req, res);
+        } else {
+            try {
+                final String topicName = req.getParameter("topicName");
+                final Forum forum = this.forumDao.findById(id);
+
+                // Send the message.
+                this.topicDao.create(topicName, forum);
+
+                this.loadView(req, res, forum);
+            } catch (final NotFoundException e) {
+                this.redirect404(req, res);
+            }
+        }
+    }
+
+	/**
+	 * Loads the view.
+	 *
+	 * @param req
+	 * @param res
+	 * @param forum
+	 */
+	private void loadView(final HttpServletRequest req, final HttpServletResponse res, final Forum forum) {
+	    req.setAttribute(ForumServlet.FORUM_INFOS, forum);
+        req.setAttribute(ForumServlet.LIST_TOPICS, this.topicDao.findAll(forum));
+
+        try {
+            this.getServletContext().getRequestDispatcher(VIEW).forward(req, res);
+        } catch (ServletException | IOException e) {
+            this.redirect404(req, res);
+        }
+	}
 }

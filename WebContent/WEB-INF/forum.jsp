@@ -26,7 +26,7 @@
 				<p>Topic</p>	
 			</div>
 			<div class="card-body">
-				<form method="get" action="newTopic">
+				<form method="POST" action="${requestScope['javax.servlet.forward.query_string']}">
 					<div class="form-group">
 				        <input type="text" class="form-control" name="topicName" value="" size="20" maxlength="20" placeholder="Nom du topic (requis)"/>
 					</div>

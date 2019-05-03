@@ -26,6 +26,10 @@ public final class GeneralTopicDao extends BaseDao implements TopicDao {
     private static final String FIND_ONE_REQUEST = "SELECT * FROM " + TopicContract.TABLE
             + " WHERE " + TopicContract.ID + " = ?";
 
+    /** Request to create a {@link Topic topic}. */
+    private static final String INSERT_REQUEST = "INSERT INTO " + TopicContract.TABLE
+            + "(" + TopicContract.NAME + ", " + TopicContract.ID_FORUM + ") VALUES(?, ?)";
+
     @Override
     public List<Topic> findAll(final Forum forum) {
 
@@ -76,6 +80,25 @@ public final class GeneralTopicDao extends BaseDao implements TopicDao {
         }
 
         return topic;
+    }
+
+    @Override
+    public void create(final String name, final Forum forum) {
+        final Long forumId = forum.getId();
+
+        try {
+            // Connect to database.
+            final PgConnection connection = this.getFactory().getConnection();
+
+            // Prepared request.
+            final PreparedStatement statement = connection.prepareStatement(GeneralTopicDao.INSERT_REQUEST);
+
+            statement.setString(1, name);
+            statement.setLong(2, forumId);
+
+            statement.executeQuery();
+
+        } catch (final SQLException e) {}
     }
 
     /**

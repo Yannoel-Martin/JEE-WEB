@@ -27,4 +27,12 @@ public interface TopicDao {
      * @throws NotFoundException
      */
     Topic findById(Long id) throws NotFoundException;
+
+    /**
+     * Creates a new {@link Topic}
+     *
+     * @param name
+     * @param forum
+     */
+    void create(String name, Forum forum);
 }
