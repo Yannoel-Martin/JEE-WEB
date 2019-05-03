@@ -20,7 +20,7 @@ public final class SubscribeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1500899097398450168L;
 
 	/** Servlet view. */
-	private static final String VIEW = "/WEB-INF/forum.jsp";
+	private static final String VIEW = "/WEB-INF/index.jsp";
 
 	/** DAO to manipulate {@link User} entities. */
 	private final UserDao dao = new GeneralUserDao();
