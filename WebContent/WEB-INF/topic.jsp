@@ -16,7 +16,7 @@
 				<c:forEach items="${discussions}" var="discussion">
 					<div class="discussion">
 						<div class="title">
-							<c:out value="${discussion.name}" />
+							<a href="../discussion/${discussion.id}"><c:out value="${discussion.name}"/></a>
 						</div>
 					</div>
 				</c:forEach>
