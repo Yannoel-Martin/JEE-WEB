@@ -1,8 +1,6 @@
 package servlets;
 
 import java.io.IOException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -39,32 +37,58 @@ public final class TopicServlet extends BaseServlet {
     protected void doGet(final HttpServletRequest req, final HttpServletResponse res)
             throws ServletException, IOException {
 
-	    final String path = req.getPathInfo();
-        final Pattern pattern = Pattern.compile("/([0-9]+)");
+        final Long id = this.getPathId(req);
 
-        if (path != null) {
+        if (id == null) {
+            this.redirect404(req, res);
+        } else {
+            try {
+                this.loadView(req, res, this.topicDao.findById(id));
 
-            final Matcher match = pattern.matcher(path);
-
-            if (match.matches()) {
-                final Long id = Long.parseLong(match.group(1));
-
-                try {
-                    final Topic topic = this.topicDao.findById(id);
-
-                    req.setAttribute(TopicServlet.TOPIC_INFO, topic);
-                    req.setAttribute(TopicServlet.DISCUSSIONS_LIST, this.discussionDao.findAll(topic));
-
-                    this.getServletContext().getRequestDispatcher(VIEW).forward(req, res);
-
-                } catch (final NotFoundException e) {
-                    this.redirect404(req, res);
-                }
-            } else {
+            } catch (final NotFoundException e) {
                 this.redirect404(req, res);
             }
-        } else {
-            this.redirect404(req, res);
         }
 	}
+
+    @Override
+    protected void doPost(final HttpServletRequest req, final HttpServletResponse res)
+            throws ServletException, IOException {
+
+        final Long id = this.getPathId(req);
+
+        if (id == null) {
+            this.redirect404(req, res);
+        } else {
+            try {
+                final String discussionName = req.getParameter("discussionName");
+                final Topic topic = this.topicDao.findById(id);
+
+                // Send the message.
+                this.discussionDao.create(discussionName, topic);
+
+                this.loadView(req, res, topic);
+            } catch (final NotFoundException e) {
+                this.redirect404(req, res);
+            }
+        }
+    }
+
+    /**
+     * Loads the view.
+     *
+     * @param req
+     * @param res
+     * @param topic
+     */
+    private void loadView(final HttpServletRequest req, final HttpServletResponse res, final Topic topic) {
+        req.setAttribute(TopicServlet.TOPIC_INFO, topic);
+        req.setAttribute(TopicServlet.DISCUSSIONS_LIST, this.discussionDao.findAll(topic));
+
+        try {
+            this.getServletContext().getRequestDispatcher(VIEW).forward(req, res);
+        } catch (ServletException | IOException e) {
+            this.redirect404(req, res);
+        }
+    }
 }

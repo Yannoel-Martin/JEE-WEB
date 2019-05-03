@@ -18,7 +18,7 @@
 				</div>
 			</c:forEach>
 		</span>
-		<form method="get" action="newDiscussion">
+		<form method="POST" action="${requestScope['javax.servlet.forward.query_string']}">
 		    <fieldset>
 		        <legend>Topic</legend>
 		

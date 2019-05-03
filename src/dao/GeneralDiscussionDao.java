@@ -27,6 +27,11 @@ public final class GeneralDiscussionDao extends BaseDao implements DiscussionDao
     private static final String FIND_ONE_REQUEST = "SELECT * FROM " + DiscussionContract.TABLE
             + " WHERE " + DiscussionContract.ID + " = ?";
 
+    /** Request to create a {@link Discussion}. */
+    private static final String INSERT_REQUEST = "INSERT INTO " + DiscussionContract.TABLE
+            + "(" + DiscussionContract.NAME + ", " + DiscussionContract.STATUS + ", "
+            + DiscussionContract.ID_TOPIC + ") VALUES(?, ?, ?)";
+
     @Override
     public List<Discussion> findAll(final Topic topic) {
         final List<Discussion> discussions = new ArrayList<>();
@@ -76,6 +81,26 @@ public final class GeneralDiscussionDao extends BaseDao implements DiscussionDao
         }
 
         return discussion;
+    }
+
+    @Override
+    public void create(final String name, final Topic topic) {
+        final Long topicId = topic.getId();
+
+        try {
+            // Connect to database.
+            final PgConnection connection = this.getFactory().getConnection();
+
+            // Prepared request.
+            final PreparedStatement statement = connection.prepareStatement(GeneralDiscussionDao.INSERT_REQUEST);
+
+            statement.setString(1, name);
+            statement.setLong(2, DiscussionStatus.Opened.getId());
+            statement.setLong(3, topicId);
+
+            statement.executeQuery();
+
+        } catch (final SQLException e) {}
     }
 
     /**

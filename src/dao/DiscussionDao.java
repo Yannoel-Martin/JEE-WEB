@@ -27,4 +27,11 @@ public interface DiscussionDao {
      * @throws NotFoundException
      */
     Discussion findById(Long id) throws NotFoundException;
+
+    /**
+     * Creates a new {@link Discussion}.
+     * @param name
+     * @param topic
+     */
+    void create(String name, Topic topic);
 }

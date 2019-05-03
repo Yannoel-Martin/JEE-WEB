@@ -1,8 +1,6 @@
 package servlets;
 
 import java.io.IOException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -40,32 +38,24 @@ public final class ForumServlet extends BaseServlet {
     protected void doGet(final HttpServletRequest req, final HttpServletResponse res)
             throws ServletException, IOException {
 
-	    final String path = req.getPathInfo();
-	    final Pattern pattern = Pattern.compile("/([0-9]+)");
+	   final Long id = this.getPathId(req);
 
-	    if (path != null) {
+	   if (id == null) {
+	       this.redirect404(req, res);
+	   } else {
+	       try {
+	           final Forum forum = this.forumDao.findById(id);
 
-	        final Matcher match = pattern.matcher(path);
+	           req.setAttribute(ForumServlet.FORUM_INFOS, forum);
+	           req.setAttribute(ForumServlet.LIST_TOPICS, this.topicDao.findAll(forum));
 
-	        if (match.matches()) {
-	            final Long id = Long.parseLong(match.group(1));
+	           this.getServletContext().getRequestDispatcher(VIEW).forward(req, res);
 
-	            try {
-                    final Forum forum = this.forumDao.findById(id);
-
-                    req.setAttribute(ForumServlet.FORUM_INFOS, forum);
-                    req.setAttribute(ForumServlet.LIST_TOPICS, this.topicDao.findAll(forum));
-
-                    this.getServletContext().getRequestDispatcher(VIEW).forward(req, res);
-
-                } catch (final NotFoundException e) {
-                    this.redirect404(req, res);
-                }
-	        } else {
-	            this.redirect404(req, res);
-	        }
-	    } else {
-	        this.redirect404(req, res);
-	    }
+	       } catch (final NotFoundException e) {
+	           this.redirect404(req, res);
+	       }
+	   }
 	}
+
+
 }
