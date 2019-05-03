@@ -45,11 +45,11 @@
 		<url-pattern>/connexion</url-pattern>
 	</servlet-mapping>
 	<servlet>
-		<servlet-name>Subscribe</servlet-name>
-		<servlet-class>servlets.Subscribe</servlet-class>
+		<servlet-name>SubscribeServlet</servlet-name>
+		<servlet-class>servlets.SubscribeServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>Subscribe</servlet-name>
+		<servlet-name>SubscribeServlet</servlet-name>
 		<url-pattern>/subscribe</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>

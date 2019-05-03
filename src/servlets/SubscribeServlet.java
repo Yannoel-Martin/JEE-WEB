@@ -9,10 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import beans.User;
 
-public class Subscribe extends HttpServlet {
+/**
+ * Servlet to subscribe.
+ */
+public final class SubscribeServlet extends HttpServlet {
 
-	/* generated ID serialisation Object */
+	/** Serial number. */
 	private static final long serialVersionUID = 1500899097398450168L;
+
+	/** Servlet view. */
+	private static final String VIEW = "/WEB-INF/forum.jsp";
 
 	@Override
     protected void doPost(final HttpServletRequest req, final HttpServletResponse res) throws ServletException, IOException {
@@ -21,7 +27,6 @@ public class Subscribe extends HttpServlet {
 //		List<Topic> topics = Arrays.asList(new Topic());
 //		req.setAttribute("topics", topics);
 		req.setAttribute("user", user);
-		this.getServletContext().getRequestDispatcher("/WEB-INF/forum.jsp").forward(req, res);
+		this.getServletContext().getRequestDispatcher(SubscribeServlet.VIEW).forward(req, res);
 	}
-
 }
