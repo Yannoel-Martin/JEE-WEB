@@ -1,5 +1,7 @@
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,18 +15,18 @@
 			<c:forEach items="${messages}" var="message">
 				<div class="message">
 					<div class="title">
-						<c:out value="${message.utilisateur.name}" />
+						<c:out value="${message.owner.name}" />
 					</div>
 					<div class="body">
-						<c:out value="${message.content}" />
+						<c:out value="${message.body}" />
 					</div>
 					<div class="date">
-						<c:out value="${message.date}" />
+						<fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value = "${message.sendDate}"/>
 					</div>
 				</div>
 			</c:forEach>
 		</span>
-		<form method="get" action="newMessage">
+		<form method="POST" action="${requestScope['javax.servlet.forward.query_string']}">
 		    <fieldset>
 		        <legend>Message</legend>
 		

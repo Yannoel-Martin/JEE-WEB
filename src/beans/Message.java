@@ -1,6 +1,6 @@
 package beans;
 
-import java.time.ZonedDateTime;
+import java.util.Date;
 
 import lombok.Data;
 
@@ -14,16 +14,16 @@ public class Message {
     private String body;
 
     /** Date at which the {@link Message} has been sent. */
-    private ZonedDateTime sendDate;
+    private Date sendDate;
 
     /** Owner. */
     private User owner;
-    
+
     public Message() {
-    	
+
     }
-    
-	public Message(Long id, String body, ZonedDateTime sendDate) {
+
+	public Message(final Long id, final String body, final Date sendDate) {
     	this.id = id;
     	this.body = body;
     	this.sendDate = sendDate;

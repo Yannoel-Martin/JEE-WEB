@@ -30,27 +30,27 @@ Then, copy and paste the SQL that can be found at `WebContent/WEB-INF/schema.sql
 ## Feed the database
 
 ```SQL
-INSERT INTO user_forum(id, name, password, role) VALUES
-(1, 'Jean', '123', 0),
-(2, 'Michel', '468', 1),
-(3, 'Esteban', 'mac4ever', 2);
+INSERT INTO user_forum(name, password, role) VALUES
+('Jean', '123', 0),
+('Michel', '468', 1),
+('Esteban', 'mac4ever', 2);
 
 INSERT INTO forum(id) VALUES (1), (2);
 
-INSERT INTO topic(id, name, id_forum) VALUES
-(1, 'Super topic', 1),
-(2, 'Another cool topic', 1),
-(3, 'JEE', 2);
+INSERT INTO topic(name, id_forum) VALUES
+('Super topic', 1),
+('Another cool topic', 1),
+('JEE', 2);
 
-INSERT INTO discussion(id, name, status, id_topic) VALUES
-(1, 'Discussion sérieuse', 0, 1),
-(2, 'Another cool topic', 0, 1),
-(3, 'Hello', 1, 2);
+INSERT INTO discussion(name, status, id_topic) VALUES
+('Discussion sérieuse', 0, 1),
+('Another cool topic', 0, 1),
+('Hello', 1, 2);
 
-INSERT INTO message(id, content, sent_at, id_discussion, id_user_forum) VALUES
-(1, 'Que pensez-vous de ça ?', NOW(), 1, 1),
-(2, 'Je pense que c bien', NOW(), 1, 2),
-(3, 'Tout seul', NOW(), 2, 1);
+INSERT INTO message(content, sent_at, id_discussion, id_user_forum) VALUES
+('Que pensez-vous de ça ?', NOW(), 1, 1),
+('Je pense que c bien', NOW(), 1, 2),
+('Tout seul', NOW(), 2, 1);
 ```
 
 ## Change your configurations
