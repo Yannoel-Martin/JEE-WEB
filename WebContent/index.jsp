@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- import des link -->
 	<meta charset="ISO-8859-1">
 	<title>Never display</title>
 </head>

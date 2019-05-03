@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -15,13 +16,13 @@ import dao.GeneralMessageDao;
 import dao.MessageDao;
 import exceptions.NotFoundException;
 
-public final class CloseDiscussionServlet extends BaseServlet {
+public final class ValidationServlet extends BaseServlet {
 
     /** Serial number. */
 	private static final long serialVersionUID = 5622938890054157165L;
 
 	/** Servlet view. */
-	private static final String VIEW = "/WEB-INF/discussion.jsp";
+	private static final String VIEW = "/WEB-INF/validation.jsp";
 
 	/** Key to access informations on {@link Discussion} in view. */
 	private static final String DISCUSSION_INFO = "discussion";
@@ -46,7 +47,7 @@ public final class CloseDiscussionServlet extends BaseServlet {
 
                 this.loadView(req, res, discussion);
             } catch (final NotFoundException e) {
-                
+
             }
         }
 	}
@@ -68,7 +69,7 @@ public final class CloseDiscussionServlet extends BaseServlet {
 
                 this.loadView(req, res, discussion);
             } catch (final NotFoundException e) {
-                
+
             }
         }
 	}
@@ -83,11 +84,13 @@ public final class CloseDiscussionServlet extends BaseServlet {
 	private void loadView(final HttpServletRequest req, final HttpServletResponse res, final Discussion discussion) {
         final User user = this.getAuthentificatedUser(req, res);
 		req.setAttribute("user", user);
-		req.setAttribute(CloseDiscussionServlet.DISCUSSION_INFO, discussion);
-        req.setAttribute(CloseDiscussionServlet.MESSAGES_LIST, this.messageDao.findAll(discussion));
+		req.setAttribute(ValidationServlet.DISCUSSION_INFO, discussion);
+
+		final List<Message> messages = this.messageDao.findAll(discussion);
+        req.setAttribute(ValidationServlet.MESSAGES_LIST, messages);
 
         try {
-            this.getServletContext().getRequestDispatcher(VIEW).forward(req, res);
+            this.getServletContext().getRequestDispatcher(ValidationServlet.VIEW).forward(req, res);
         } catch (ServletException | IOException e) {
 
         }

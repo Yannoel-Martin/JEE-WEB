@@ -9,6 +9,6 @@
 <body>
 <br>
 	<!-- NE PAS TOUCHER ! -->
-	<jsp:forward page="/identification" />
+	<jsp:forward page="/forum/1" />
 </body>
 </html>

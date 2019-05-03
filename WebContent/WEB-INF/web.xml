@@ -41,6 +41,10 @@
 		<servlet-name>CloseDiscussionServlet</servlet-name>
 		<servlet-class>servlets.CloseDiscussionServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>ValidationServlet</servlet-name>
+		<servlet-class>servlets.ValidationServlet</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>ConnexionForum</servlet-name>
@@ -74,6 +78,15 @@
 		<servlet-name>CloseDiscussionServlet</servlet-name>
 		<url-pattern>/discussion/*/close</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ValidationServlet</servlet-name>
+		<url-pattern>/validation</url-pattern>
+	</servlet-mapping>
+
+	<error-page>
+	    <error-code>404</error-code>
+	    <location>/WEB-INF/404.jsp</location>
+	</error-page>
 
 	<jsp-config>
 		<jsp-property-group>
