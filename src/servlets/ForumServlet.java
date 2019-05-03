@@ -5,7 +5,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,7 +16,7 @@ import dao.GeneralTopicDao;
 import dao.TopicDao;
 import exceptions.NotFoundException;
 
-public class ForumServlet extends HttpServlet {
+public final class ForumServlet extends BaseServlet {
 
     /** Serial number. */
 	private static final long serialVersionUID = 7440684528279758678L;
@@ -60,9 +59,13 @@ public class ForumServlet extends HttpServlet {
                     this.getServletContext().getRequestDispatcher(VIEW).forward(req, res);
 
                 } catch (final NotFoundException e) {
-                    // TODO: 404 page.
+                    this.redirect404(req, res);
                 }
+	        } else {
+	            this.redirect404(req, res);
 	        }
+	    } else {
+	        this.redirect404(req, res);
 	    }
 	}
 }
