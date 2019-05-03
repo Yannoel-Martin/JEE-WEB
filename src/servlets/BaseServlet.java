@@ -43,7 +43,7 @@ public class BaseServlet extends HttpServlet {
      */
     protected User getAuthentificatedUser(final HttpServletRequest req, final HttpServletResponse res) {
         final User user = new User();
-        user.setId(1L);
+        user.setId(2L);
 
         return user;
     }

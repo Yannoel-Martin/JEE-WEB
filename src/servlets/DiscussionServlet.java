@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -88,10 +89,12 @@ public final class DiscussionServlet extends BaseServlet {
         final User user = this.getAuthentificatedUser(req, res);
 		req.setAttribute("user", user);
 		req.setAttribute(DiscussionServlet.DISCUSSION_INFO, discussion);
-        req.setAttribute(DiscussionServlet.MESSAGES_LIST, this.messageDao.findAll(discussion));
+
+		final List<Message> messages = this.messageDao.findAll(discussion);
+        req.setAttribute(DiscussionServlet.MESSAGES_LIST, messages);
 
         try {
-            this.getServletContext().getRequestDispatcher(VIEW).forward(req, res);
+            this.getServletContext().getRequestDispatcher(DiscussionServlet.VIEW).forward(req, res);
         } catch (ServletException | IOException e) {
             this.redirect404(req, res);
         }
