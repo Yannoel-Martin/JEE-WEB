@@ -83,6 +83,7 @@ docker container rm jee-app
 
 # URL
 
+```
 /
 /connexion-forum
 /identification
@@ -91,3 +92,4 @@ docker container rm jee-app
 /topic/1
 /discussion/1
 (attention a l'authentification)
+```
