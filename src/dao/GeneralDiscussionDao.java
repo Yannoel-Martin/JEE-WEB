@@ -117,7 +117,13 @@ public final class GeneralDiscussionDao extends BaseDao implements DiscussionDao
         discussion.setName(resultSet.getString(DiscussionContract.NAME));
 
         final int status = resultSet.getInt(DiscussionContract.STATUS);
-        discussion.setStatus(DiscussionStatus.values()[status]);
+
+        for (final DiscussionStatus value : DiscussionStatus.values()) {
+            if (value.getId() == status) {
+                discussion.setStatus(value);
+                break;
+            }
+        }
 
         return discussion;
     }
