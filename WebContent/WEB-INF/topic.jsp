@@ -9,9 +9,13 @@
 	<title>Topic - [Nom du Sujet]</title>
 </head>
 <body>
-	<%@include file="ressource/navigation.html" %>
+	<%@include file="ressource/navigation.jsp" %>
+	<br>
 	<div class="container">
 		<div class="card">
+			<div class="card-header">
+				<p>Topic : ${topic.name}</p>	
+			</div>
 			<div class="card-body">
 				<c:forEach items="${discussions}" var="discussion">
 					<div class="discussion">
@@ -30,7 +34,7 @@
 			<div class="card-body">
 				<form method="POST" action="${requestScope['javax.servlet.forward.query_string']}">
 					<div class="form-group">
-						<input type="text" name="discussionName" value="" maxlength="255" placeholder="Nom de la discussion (requis)"/>
+						<input type="text" class="form-control" name="discussionName" value="" maxlength="255" placeholder="Nom de la discussion (requis)"/>
 					</div>
 					<div class="form-group">
 						<button type="submit" class="btn btn-primary">Ajouter</button>

@@ -9,16 +9,19 @@
 	<meta charset="ISO-8859-1">
 </head>
 <body>
-	<%@include file="ressource/navigation.html" %>
+	<%@include file="ressource/navigation.jsp" %>
+	<br>
 	<div class="container">
-		<div id="topics">
-			<c:forEach items="${topics}" var="topic">
-				<div class="topic">
-					<div class="title">
-						<a href="../topic/${topic.id}"><c:out value="${topic.name}"/></a>
+		<div id="topics" class="card">
+			<div class="card-body">
+				<c:forEach items="${topics}" var="topic">
+					<div class="topic">
+						<div class="title">
+							<a href="../topic/${topic.id}"><c:out value="${topic.name}"/></a>
+						</div>
 					</div>
-				</div>
-			</c:forEach>
+				</c:forEach>
+			</div>
 		</div>
 		<br>
 		<div class="card">
