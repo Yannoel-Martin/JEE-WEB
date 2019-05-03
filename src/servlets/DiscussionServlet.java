@@ -39,15 +39,17 @@ public final class DiscussionServlet extends BaseServlet {
 	@Override
     protected void doGet(final HttpServletRequest req, final HttpServletResponse res) throws ServletException, IOException {
 
-        final Long id = this.getPathId(req);
+        if (this.accessIsAuthorized(req, res, false)) {
+            final Long id = this.getPathId(req);
 
-        if (id != null) {
-            try {
-                final Discussion discussion = this.discussionDao.findById(id);
+            if (id != null) {
+                try {
+                    final Discussion discussion = this.discussionDao.findById(id);
 
-                this.loadView(req, res, discussion);
-            } catch (final NotFoundException e) {
+                    this.loadView(req, res, discussion);
+                } catch (final NotFoundException e) {
 
+                }
             }
         }
 	}
@@ -56,20 +58,23 @@ public final class DiscussionServlet extends BaseServlet {
 	protected void doPost(final HttpServletRequest req, final HttpServletResponse res)
 	        throws ServletException, IOException {
 
-        final Long id = this.getPathId(req);
+        if (this.accessIsAuthorized(req, res, false)) {
 
-        if (id != null) {
-            try {
-                final String body = req.getParameter("messageBody");
-                final User user = this.getAuthentificatedUser(req, res);
-                final Discussion discussion = this.discussionDao.findById(id);
+            final Long id = this.getPathId(req);
 
-                // Send the message.
-                this.messageDao.sendMessage(body, discussion, user);
+            if (id != null) {
+                try {
+                    final String body = req.getParameter("messageBody");
+                    final User user = this.getAuthentificatedUser(req, res);
+                    final Discussion discussion = this.discussionDao.findById(id);
 
-                this.loadView(req, res, discussion);
-            } catch (final NotFoundException e) {
+                    // Send the message.
+                    this.messageDao.sendMessage(body, discussion, user);
 
+                    this.loadView(req, res, discussion);
+                } catch (final NotFoundException e) {
+
+                }
             }
         }
 	}

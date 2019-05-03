@@ -59,19 +59,22 @@ public final class ForumServlet extends BaseServlet {
     protected void doPost(final HttpServletRequest req, final HttpServletResponse res)
             throws ServletException, IOException {
 
-        final Long id = this.getPathId(req);
+        if (this.accessIsAuthorized(req, res, false)) {
 
-        if (id != null) {
-            try {
-                final String topicName = req.getParameter("topicName");
-                final Forum forum = this.forumDao.findById(id);
+            final Long id = this.getPathId(req);
 
-                // Send the message.
-                this.topicDao.create(topicName, forum);
+            if (id != null) {
+                try {
+                    final String topicName = req.getParameter("topicName");
+                    final Forum forum = this.forumDao.findById(id);
 
-                this.loadView(req, res, forum);
-            } catch (final NotFoundException e) {
+                    // Send the message.
+                    this.topicDao.create(topicName, forum);
 
+                    this.loadView(req, res, forum);
+                } catch (final NotFoundException e) {
+
+                }
             }
         }
     }

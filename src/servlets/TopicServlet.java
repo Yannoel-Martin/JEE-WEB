@@ -38,14 +38,16 @@ public final class TopicServlet extends BaseServlet {
     protected void doGet(final HttpServletRequest req, final HttpServletResponse res)
             throws ServletException, IOException {
 
-        final Long id = this.getPathId(req);
+        if (this.accessIsAuthorized(req, res, false)) {
+            final Long id = this.getPathId(req);
 
-        if (id != null) {
-            try {
-                this.loadView(req, res, this.topicDao.findById(id));
+            if (id != null) {
+                try {
+                    this.loadView(req, res, this.topicDao.findById(id));
 
-            } catch (final NotFoundException e) {
+                } catch (final NotFoundException e) {
 
+                }
             }
         }
 	}
@@ -54,19 +56,21 @@ public final class TopicServlet extends BaseServlet {
     protected void doPost(final HttpServletRequest req, final HttpServletResponse res)
             throws ServletException, IOException {
 
-        final Long id = this.getPathId(req);
+        if (this.accessIsAuthorized(req, res, false)) {
+            final Long id = this.getPathId(req);
 
-        if (id != null) {
-            try {
-                final String discussionName = req.getParameter("discussionName");
-                final Topic topic = this.topicDao.findById(id);
+            if (id != null) {
+                try {
+                    final String discussionName = req.getParameter("discussionName");
+                    final Topic topic = this.topicDao.findById(id);
 
-                // Send the message.
-                this.discussionDao.create(discussionName, topic);
+                    // Send the message.
+                    this.discussionDao.create(discussionName, topic);
 
-                this.loadView(req, res, topic);
-            } catch (final NotFoundException e) {
+                    this.loadView(req, res, topic);
+                } catch (final NotFoundException e) {
 
+                }
             }
         }
     }
