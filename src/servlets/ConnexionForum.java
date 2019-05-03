@@ -21,7 +21,7 @@ public class ConnexionForum extends HttpServlet {
 //		List<Topic> topics = Arrays.asList(new Topic());
 //		req.setAttribute("topics", topics);
 		req.setAttribute("user", user);
-		this.getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(req, res);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/forum.jsp").forward(req, res);
 	}
 
 }
