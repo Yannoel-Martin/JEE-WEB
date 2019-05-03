@@ -20,8 +20,12 @@ docker exec -it jee-app psql -U postgres
 First, create the database we will be using
 
 ```
-DROP DATABASE forum
-CREATE DATABASE forum
+DROP DATABASE forum;
+CREATE DATABASE forum;
+```
+
+Enter in the database:
+```
 \c forum
 ```
 
@@ -61,9 +65,6 @@ You might change the following lines if you chose not to follow the examples :
 ```Java
   /** Connection URL. */
   private static final String PROPERTY_URL = "jdbc:postgresql://localhost:5432/forum";
-
-  /** Driver used for the database. */
-  private static final String PROPERTY_DRIVER = "org.postgresql.Driver";
 
   /** User which has access to the database. */
   private static final String PROPERTY_USER = "postgres";
