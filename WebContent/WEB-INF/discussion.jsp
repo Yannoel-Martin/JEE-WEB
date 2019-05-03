@@ -20,7 +20,7 @@
 					<c:when test="${discussion.status.id == 2}"> Fermé</c:when>
 					<c:otherwise> En attente de validation</c:otherwise>
 				</c:choose></p>
-				<p><c:if test="${discussion.status.id == 1 && user.admin == 1}">
+				<p><c:if test="${discussion.status.id == 1 && user.role.id == 1}">
 					<a class="btn btn-danger" href="close">Fermer le topic</a>
 				</c:if></p>
 			</div>
