@@ -53,7 +53,7 @@
 				<div class="card-body">
 					<form method="POST" action="${requestScope['javax.servlet.forward.query_string']}">
 						<div class="form-group">
-							<input type="text" name="messageBody" value="" placeholder="Votre message (requis)"/>
+							<textarea class="form-control" name="messageBody" rpws="5">Votre message (requis)</textarea>
 						</div>
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary">Répondre</button>
