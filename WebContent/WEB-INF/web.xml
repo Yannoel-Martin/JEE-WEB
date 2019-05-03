@@ -37,12 +37,12 @@
 		<url-pattern>/identification</url-pattern>
 	</servlet-mapping>
 	<servlet>
-		<servlet-name>Connexion</servlet-name>
-		<servlet-class>servlets.Connexion</servlet-class>
+		<servlet-name>ConnectionServlet</servlet-name>
+		<servlet-class>servlets.ConnectionServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>Connexion</servlet-name>
-		<url-pattern>/connexion</url-pattern>
+		<servlet-name>ConnectionServlet</servlet-name>
+		<url-pattern>/connection</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>SubscribeServlet</servlet-name>
