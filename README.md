@@ -80,3 +80,17 @@ You might change the following lines if you chose not to follow the examples :
 docker container stop jee-app
 docker container rm jee-app
 ```
+
+# URL
+
+/
+/connexion-forum
+/identification
+/connection
+/subscribe
+/forum/1
+/topic/1
+/discussion/1
+/topic
+/validation
+/discussion/1/close
