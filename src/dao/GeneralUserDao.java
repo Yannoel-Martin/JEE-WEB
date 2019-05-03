@@ -106,11 +106,12 @@ public final class GeneralUserDao extends BaseDao implements UserDao {
         final User user = this.findByName(name);
 
         if (user != null) {
+            final String userPassword = user.getPassword();
             final String salt = user.getSalt();
 
             final String testedPassword = BCrypt.hashpw(password, salt);
 
-            if (!testedPassword.equals(user.getPassword())) {
+            if (!testedPassword.equals(userPassword)) {
                 return null;
             }
         }
