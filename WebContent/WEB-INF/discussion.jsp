@@ -14,39 +14,56 @@
 	<%@include file="ressource/navigation.html" %>
 	<div class="container">
 		<div class="card">
+			<div class="card-header">
+				<p>Statut de la discussion : 
+					<c:choose>
+						<c:when test="${discussion.status.id == 1}">
+							Ouvert
+						</c:when>
+						<c:otherwise>
+							Fermé
+						</c:otherwise>
+					</c:choose>
+				</p>	
+			</div>
 			<div class="card-body">
 				<c:forEach items="${messages}" var="message">
-					<div class="message">
-						<div class="title">
+					<div class="message d-flex">
+						<div class="right text-white">
 							<c:out value="${message.owner.name}" />
+							<fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value = "${message.sendDate}"/>
 						</div>
 						<div class="body">
 							<c:out value="${message.body}" />
 						</div>
-						<div class="date">
-							<fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value = "${message.sendDate}"/>
-						</div>
 					</div>
+					<br>
 				</c:forEach>
 			</div>
 		</div>
+		<style>
+			.message { border: 1px solid black; }
+			.message .right { border-right: 1px solid black; background-color: blue; }
+		</style>
 		<br>
-		<div class="card">
-			<div class="card-header">
-				<p>Message</p>	
+		<c:if test="${discussion.status.id == 1}">
+			<div class="card">
+				<div class="card-header">
+					<p>Message</p>	
+				</div>
+				<div class="card-body">
+					<form method="POST" action="${requestScope['javax.servlet.forward.query_string']}">
+						<div class="form-group">
+							<input type="text" name="messageBody" value="" placeholder="Votre message (requis)"/>
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary">Répondre</button>
+						</div>
+					</form>
+				</div>
 			</div>
-			<div class="card-body">
-				<form method="POST" action="${requestScope['javax.servlet.forward.query_string']}">
-					<div class="form-group">
-						<input type="text" name="messageBody" value="" size="80" maxlength="20" placeholder="Votre message (requis)"/>
-					</div>
-					<div class="form-group">
-						<button type="submit" class="btn btn-primary">Répondre</button>
-					</div>
-				</form>
-			</div>
-		</div>
-		<br>
+			<br>
+		</c:if>
 	</div>
 	
 	<%@include file="ressource/footer.html" %>

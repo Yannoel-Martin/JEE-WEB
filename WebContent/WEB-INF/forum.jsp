@@ -28,7 +28,7 @@
 			<div class="card-body">
 				<form method="POST" action="${requestScope['javax.servlet.forward.query_string']}">
 					<div class="form-group">
-				        <input type="text" class="form-control" name="topicName" value="" size="20" maxlength="20" placeholder="Nom du topic (requis)"/>
+				        <input type="text" class="form-control" name="topicName" value="" maxlength="255" placeholder="Nom du topic (requis)"/>
 					</div>
 					<div class="form-group">
 						<button type="submit" class="btn btn-primary">Ajouter</button>
