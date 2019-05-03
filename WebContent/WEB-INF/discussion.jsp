@@ -15,29 +15,21 @@
 	<div class="container">
 		<div class="card">
 			<div class="card-header">
-				<p>Statut de la discussion :
-					<c:choose>
-						<c:when test="${discussion.status.id == 1}">
-							Ouvert
-						</c:when>
-						<c:when test="${discussion.status.id == 2}">
-							Fermé
-						</c:when>
-						<c:otherwise>
-							En attente de validation
-						</c:otherwise>
-					</c:choose>
-				</p>	
+				<p>Statut de la discussion :<c:choose>
+					<c:when test="${discussion.status.id == 1}"> Ouvert</c:when>
+					<c:when test="${discussion.status.id == 2}"> Fermé</c:when>
+					<c:otherwise> En attente de validation</c:otherwise>
+				</c:choose></p>	
 			</div>
 			<div class="card-body">
 				<c:forEach items="${messages}" var="message">
 					<div class="message d-flex">
 						<div class="right text-white">
-							<c:out value="${message.owner.name}" />
-							<fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value = "${message.sendDate}"/>
+							<p><c:out value="${message.owner.name}" /></p>
+							<p><fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value = "${message.sendDate}"/></p>
 						</div>
 						<div class="body">
-							<c:out value="${message.body}" />
+							<br><c:out value="${message.body}" /><br>
 						</div>
 					</div>
 					<br>
@@ -46,7 +38,8 @@
 		</div>
 		<style>
 			.message { border: 1px solid black; }
-			.message .right { border-right: 1px solid black; background-color: blue; }
+			.message .right { border-right: 1px solid black; background-color: blue; padding: 8px; }
+			.message .body { padding-left: 8px; }
 		</style>
 		<br>
 		<c:if test="${discussion.status.id == 1}">
