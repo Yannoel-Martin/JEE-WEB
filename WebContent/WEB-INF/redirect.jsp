@@ -4,7 +4,7 @@
 <html>
 <head>
 	<!-- import des link -->
-	<%@include file="WEB-INF/ressource/header_link-bootstrap.html" %>
+	<%@include file="ressource/header_link-bootstrap.html" %>
 	<meta charset="ISO-8859-1">
 	<title>JEE-WEB Forum</title>
 </head>
@@ -12,6 +12,6 @@
 <br>
 	<c:redirect><c:out value="/identification"/></c:redirect>
 	<!-- import du script -->
-	<%@include file="WEB-INF/ressource/source-bootstrap.html" %>
+	<%@include file="ressource/source-bootstrap.html" %>
 </body>
 </html>
