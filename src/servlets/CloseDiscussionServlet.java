@@ -15,7 +15,7 @@ import dao.GeneralMessageDao;
 import dao.MessageDao;
 import exceptions.NotFoundException;
 
-public final class DiscussionServlet extends BaseServlet {
+public final class CloseDiscussionServlet extends BaseServlet {
 
     /** Serial number. */
 	private static final long serialVersionUID = 5622938890054157165L;
@@ -87,8 +87,8 @@ public final class DiscussionServlet extends BaseServlet {
 	private void loadView(final HttpServletRequest req, final HttpServletResponse res, final Discussion discussion) {
         final User user = this.getAuthentificatedUser(req, res);
 		req.setAttribute("user", user);
-		req.setAttribute(DiscussionServlet.DISCUSSION_INFO, discussion);
-        req.setAttribute(DiscussionServlet.MESSAGES_LIST, this.messageDao.findAll(discussion));
+		req.setAttribute(CloseDiscussionServlet.DISCUSSION_INFO, discussion);
+        req.setAttribute(CloseDiscussionServlet.MESSAGES_LIST, this.messageDao.findAll(discussion));
 
         try {
             this.getServletContext().getRequestDispatcher(VIEW).forward(req, res);

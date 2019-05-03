@@ -83,6 +83,8 @@ public final class ForumServlet extends BaseServlet {
 	 * @param forum
 	 */
 	private void loadView(final HttpServletRequest req, final HttpServletResponse res, final Forum forum) {
+        final User user = this.getAuthentificatedUser(req, res);
+		req.setAttribute("user", user);
 	    req.setAttribute(ForumServlet.FORUM_INFOS, forum);
         req.setAttribute(ForumServlet.LIST_TOPICS, this.topicDao.findAll(forum));
 

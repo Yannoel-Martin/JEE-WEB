@@ -10,7 +10,7 @@
 </head>
 <body>
 <br>
-	<c:redirect><c:out value="/connexion-forum"/></c:redirect>
+	<c:redirect><c:out value="/identification"/></c:redirect>
 	<!-- import du script -->
 	<%@include file="WEB-INF/ressource/source-bootstrap.html" %>
 </body>
