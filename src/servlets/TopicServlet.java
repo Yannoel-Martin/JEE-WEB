@@ -82,6 +82,8 @@ public final class TopicServlet extends BaseServlet {
      * @param topic
      */
     private void loadView(final HttpServletRequest req, final HttpServletResponse res, final Topic topic) {
+        final User user = this.getAuthentificatedUser(req, res);
+		req.setAttribute("user", user);
         req.setAttribute(TopicServlet.TOPIC_INFO, topic);
         req.setAttribute(TopicServlet.DISCUSSIONS_LIST, this.discussionDao.findAll(topic));
 

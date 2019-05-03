@@ -14,12 +14,15 @@
 	<%@include file="ressource/navigation.html" %>
 	<div class="container">
 		<div class="card">
-			<div class="card-header">
+			<div class="card-header d-flex justify-content-between">
 				<p>Statut de la discussion :<c:choose>
 					<c:when test="${discussion.status.id == 1}"> Ouvert</c:when>
 					<c:when test="${discussion.status.id == 2}"> Fermé</c:when>
 					<c:otherwise> En attente de validation</c:otherwise>
-				</c:choose></p>	
+				</c:choose></p>
+				<p><c:if test="${discussion.status.id == 1 && user.admin == 1}">
+					<a class="btn btn-danger" href="close">Fermer le topic</a>
+				</c:if></p>
 			</div>
 			<div class="card-body">
 				<c:forEach items="${messages}" var="message">
