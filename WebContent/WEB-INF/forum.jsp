@@ -15,7 +15,7 @@
 			<c:forEach items="${topics}" var="topic">
 				<div class="topic">
 					<div class="title">
-						<c:out value="${topic.name}"/>
+						<a href="${topic.id}"><c:out value="${topic.name}"/></a>
 					</div>
 				</div>
 			</c:forEach>

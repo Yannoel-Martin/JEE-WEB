@@ -3,10 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Topic - [Nom du Sujet]</title>
+	<!-- import du link -->
+	<%@include file="ressource/header_link-bootstrap.html" %>
+	<meta charset="ISO-8859-1">
+	<title>Topic - [Nom du Sujet]</title>
 </head>
 <body>
+	<%@include file="ressource/navigation.html" %>
 	<div class="container">
 		<span>
 		----------Liste des discussions----------<br>
@@ -29,5 +32,11 @@
 		    </fieldset>
 		    <input type="submit" value="Ajouter"/>
 		</form>
+	
+	<%@include file="ressource/footer.html" %>
+	
+	<!-- import du script -->
+	<%@include file="ressource/source-bootstrap.html" %>
+		
 </body>
 </html>
