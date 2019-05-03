@@ -1,3 +1,18 @@
+-- Database generated with pgModeler (PostgreSQL Database Modeler).
+-- pgModeler  version: 0.9.1
+-- PostgreSQL version: 10.0
+-- Project Site: pgmodeler.io
+-- Model Author: ---
+
+
+-- Database creation must be done outside a multicommand file.
+-- These commands were put in this file only as a convenience.
+-- -- object: new_database | type: DATABASE --
+-- -- DROP DATABASE IF EXISTS new_database;
+-- CREATE DATABASE new_database;
+-- -- ddl-end --
+-- 
+
 -- object: public.forum | type: TABLE --
 -- DROP TABLE IF EXISTS public.forum CASCADE;
 CREATE TABLE public.forum(
@@ -58,6 +73,7 @@ CREATE TABLE public.user_forum(
     name varchar(255),
     password varchar(255),
     role smallint,
+    salt varchar(255),
     CONSTRAINT user_id PRIMARY KEY (id)
 
 );

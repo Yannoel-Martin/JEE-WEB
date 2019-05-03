@@ -63,12 +63,12 @@
 						<h2>Connexion <i class="fa fa-lock"></i></h2>
 					</div>
 					<div class="card-body">
-						<form method="post" action="connexion">
+						<form method="post" action="connection">
 							<div class="form-group">
-								<input type="text" class="form-control" id="login_con" placeholder="Login (requis)">
+								<input type="text" class="form-control" name="login" id="login_con" placeholder="Login (requis)">
 							</div>
 							<div class="form-group">
-								<input type="password" class="form-control" id="password_con" placeholder="Password (requis)">
+								<input type="password" class="form-control" name="password" id="password_con" placeholder="Password (requis)">
 							</div>
 							<div class="form-group">
 								<button type="submit" class="btn btn-primary">Envoyer <i class="fa fa-location-arrow"></i></button>
