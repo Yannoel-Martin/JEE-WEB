@@ -34,10 +34,10 @@ Then, copy and paste the SQL that can be found at `WebContent/WEB-INF/schema.sql
 ## Feed the database
 
 ```SQL
-INSERT INTO user_forum(name, password, role) VALUES
-('Jean', '123', 0),
-('Michel', '468', 1),
-('Esteban', 'mac4ever', 2);
+INSERT INTO user_forum(name, password, salt, role) VALUES
+('Jean', '123', 'r', 0),
+('Michel', '468', 'r', 1),
+('Esteban', 'mac4ever', 'r', 0);
 
 INSERT INTO forum(id) VALUES (1), (2);
 

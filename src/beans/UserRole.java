@@ -1,5 +1,8 @@
 package beans;
 
+import lombok.Getter;
+
+@Getter
 public enum UserRole {
     User(0L),
     Admin(1L);

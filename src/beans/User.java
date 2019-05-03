@@ -14,14 +14,17 @@ public class User {
     /** Password for authentification. */
     private String password;
 
+    /** Salt associated to password. */
+    private String salt;
+
     /** Rights on the app. */
     private UserRole role;
-    
+
     public User () {
-    	
+
     }
-    
-    public User(Long id, String name, String password, UserRole role) {
+
+    public User(final Long id, final String name, final String password, final UserRole role) {
     	this.id = id;
     	this.name = name;
     	this.password = password;
