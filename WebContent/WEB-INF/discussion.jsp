@@ -11,7 +11,7 @@
 	<title>Discussion - [Nom de la Discussion]</title>
 </head>
 <body>
-	<%@include file="ressource/navigation.html" %>
+	<%@include file="ressource/navigation.jsp" %>
 	<br>
 	<div class="container">
 		<div class="card">
