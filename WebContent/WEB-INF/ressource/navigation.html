@@ -1,15 +1,20 @@
 <div class="d-flex justify-content-between navigation">
 	<h1 class="h3 mb-0"><a href="/JEE-WEB/connexion-forum">JEE-WEB Forum</a></h1>
-	<a href="/JEE-WEB/identification">
-		<c:choose>
-			<c:when test="${token != ''}">
-				<span>${user.name}<i class="fa fa-power-off"></i></span>
-			</c:when>
-			<c:otherwise>
-				<span>Connexion / Inscription</span>
-			</c:otherwise>
-		</c:choose>
-	</a>
+	<div class="d-flex">
+		<c:id test="${user.admin == 1}">
+			<a href="/JEE-WEB/validation">ADMIN</a>
+		</c:id>
+		<a href="/JEE-WEB/identification">
+			<c:choose>
+				<c:when test="${token != ''}">
+					<span>${user.name}<i class="fa fa-power-off"></i></span>
+				</c:when>
+				<c:otherwise>
+					<span>Connexion / Inscription</span>
+				</c:otherwise>
+			</c:choose>
+		</a>
+	</div>
 </div>
 
 <style>
