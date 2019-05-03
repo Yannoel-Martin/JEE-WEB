@@ -9,7 +9,7 @@
 	<meta charset="ISO-8859-1">
 </head>
 <body>
-	<%@include file="ressource/navigation.jsp" %>
+	<%@include file="/WEB-INF/ressource/navigation.jsp" %>
 	<br>
 	<div class="container">
 		<div id="topics" class="card">

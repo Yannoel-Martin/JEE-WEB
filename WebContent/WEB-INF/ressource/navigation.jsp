@@ -1,9 +1,9 @@
 <div class="d-flex justify-content-between navigation">
 	<h1 class="h3 mb-0"><a href="/JEE-WEB/connexion-forum">JEE-WEB Forum</a></h1>
 	<div class="d-flex">
-		<c:id test="${user.admin == 1}">
+		<c:if test="${user.role.id == 1}">
 			<a href="/JEE-WEB/validation">ADMIN</a>
-		</c:id>
+		</c:if>
 		<a href="/JEE-WEB/identification">
 			<c:choose>
 				<c:when test="${token != ''}">
