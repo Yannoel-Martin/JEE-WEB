@@ -29,7 +29,7 @@
 			<div class="card-body">
 				<c:forEach items="${messages}" var="message">
 					<div class="message d-flex">
-						<div>
+						<div class="right text-white">
 							<c:out value="${message.owner.name}" />
 							<fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value = "${message.sendDate}"/>
 						</div>
@@ -37,12 +37,13 @@
 							<c:out value="${message.body}" />
 						</div>
 					</div>
+					<br>
 				</c:forEach>
 			</div>
 		</div>
 		<style>
-			.message {
-			}
+			.message { border: 1px solid black; }
+			.message .right { border-right: 1px solid black; background-color: blue; }
 		</style>
 		<br>
 		<c:if test="${discussion.status.id == 1}">
