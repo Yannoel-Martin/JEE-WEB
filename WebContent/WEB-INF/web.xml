@@ -64,7 +64,7 @@
 		<servlet-name>DiscussionServlet</servlet-name>
 		<url-pattern>/discussion/*</url-pattern>
 	</servlet-mapping>
-	
+
 	<jsp-config>
 		<jsp-property-group>
 			<url-pattern>*.jsp</url-pattern>

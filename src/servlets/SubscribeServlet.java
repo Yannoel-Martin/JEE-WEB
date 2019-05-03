@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import beans.User;
+import beans.UserRole;
 
 /**
  * Servlet to subscribe.
@@ -22,11 +22,19 @@ public final class SubscribeServlet extends HttpServlet {
 
 	@Override
     protected void doPost(final HttpServletRequest req, final HttpServletResponse res) throws ServletException, IOException {
-		final User user = new User();
-		user.setName("John Doe");
-//		List<Topic> topics = Arrays.asList(new Topic());
-//		req.setAttribute("topics", topics);
-		req.setAttribute("user", user);
+
+	    final String login = req.getParameter("login");
+	    final String password = req.getParameter("password");
+        final Integer role = Integer.parseInt(req.getParameter("role"));
+
+        final UserRole userRole;
+
+        if (role == 1) {
+            userRole = UserRole.User;
+        } else {
+            userRole = UserRole.Admin;
+        }
+
 		this.getServletContext().getRequestDispatcher(SubscribeServlet.VIEW).forward(req, res);
 	}
 }
