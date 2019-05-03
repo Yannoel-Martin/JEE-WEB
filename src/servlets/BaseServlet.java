@@ -23,18 +23,6 @@ public class BaseServlet extends HttpServlet {
     private static final String VIEW_404 = "/WEB-INF/404.jsp";
 
     /**
-     * Redirects to 404 page.
-     *
-     * @param req
-     * @param res
-     */
-    protected void redirect404(final HttpServletRequest req, final HttpServletResponse res) {
-        try {
-            this.getServletContext().getRequestDispatcher(BaseServlet.VIEW_404).forward(req, res);
-        } catch (ServletException | IOException e) {}
-    }
-
-    /**
      * Gets the authentificated user.
      *
      * @param req

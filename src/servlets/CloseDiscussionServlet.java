@@ -40,15 +40,13 @@ public final class CloseDiscussionServlet extends BaseServlet {
 
         final Long id = this.getPathId(req);
 
-        if (id == null) {
-            this.redirect404(req, res);
-        } else {
+        if (id != null) {
             try {
                 final Discussion discussion = this.discussionDao.findById(id);
 
                 this.loadView(req, res, discussion);
             } catch (final NotFoundException e) {
-                this.redirect404(req, res);
+                
             }
         }
 	}
@@ -59,9 +57,7 @@ public final class CloseDiscussionServlet extends BaseServlet {
 
         final Long id = this.getPathId(req);
 
-        if (id == null) {
-            this.redirect404(req, res);
-        } else {
+        if (id != null) {
             try {
                 final String body = req.getParameter("messageBody");
                 final User user = this.getAuthentificatedUser(req, res);
@@ -72,7 +68,7 @@ public final class CloseDiscussionServlet extends BaseServlet {
 
                 this.loadView(req, res, discussion);
             } catch (final NotFoundException e) {
-                this.redirect404(req, res);
+                
             }
         }
 	}
@@ -93,7 +89,7 @@ public final class CloseDiscussionServlet extends BaseServlet {
         try {
             this.getServletContext().getRequestDispatcher(VIEW).forward(req, res);
         } catch (ServletException | IOException e) {
-            this.redirect404(req, res);
+
         }
 	}
 }

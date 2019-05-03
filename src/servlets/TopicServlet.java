@@ -40,14 +40,12 @@ public final class TopicServlet extends BaseServlet {
 
         final Long id = this.getPathId(req);
 
-        if (id == null) {
-            this.redirect404(req, res);
-        } else {
+        if (id != null) {
             try {
                 this.loadView(req, res, this.topicDao.findById(id));
 
             } catch (final NotFoundException e) {
-                this.redirect404(req, res);
+
             }
         }
 	}
@@ -58,9 +56,7 @@ public final class TopicServlet extends BaseServlet {
 
         final Long id = this.getPathId(req);
 
-        if (id == null) {
-            this.redirect404(req, res);
-        } else {
+        if (id != null) {
             try {
                 final String discussionName = req.getParameter("discussionName");
                 final Topic topic = this.topicDao.findById(id);
@@ -70,7 +66,7 @@ public final class TopicServlet extends BaseServlet {
 
                 this.loadView(req, res, topic);
             } catch (final NotFoundException e) {
-                this.redirect404(req, res);
+
             }
         }
     }
@@ -91,7 +87,7 @@ public final class TopicServlet extends BaseServlet {
         try {
             this.getServletContext().getRequestDispatcher(VIEW).forward(req, res);
         } catch (ServletException | IOException e) {
-            this.redirect404(req, res);
+
         }
     }
 }
