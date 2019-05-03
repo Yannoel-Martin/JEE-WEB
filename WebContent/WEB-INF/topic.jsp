@@ -11,27 +11,35 @@
 <body>
 	<%@include file="ressource/navigation.html" %>
 	<div class="container">
-		<span>
-		----------Liste des discussions----------<br>
-			<c:forEach items="${discussions}" var="discussion">
-				<div class="discussion">
-					<div class="title">
-						<c:out value="${discussion.name}" />
+		<div class="card">
+			<div class="card-body">
+				<c:forEach items="${discussions}" var="discussion">
+					<div class="discussion">
+						<div class="title">
+							<c:out value="${discussion.name}" />
+						</div>
 					</div>
-				</div>
-			</c:forEach>
-		</span>
-		<form method="POST" action="${requestScope['javax.servlet.forward.query_string']}">
-		    <fieldset>
-		        <legend>Topic</legend>
-		
-		        <label for="discussionName">Nom<span class="requis">*</span></label>
-		        <input type="text" name="discussionName" value="" size="40" maxlength="20"/>
-		        <br/>
-		        
-		    </fieldset>
-		    <input type="submit" value="Ajouter"/>
-		</form>
+				</c:forEach>
+			</div>
+		</div>
+		<br>
+		<div class="card">
+			<div class="card-header">
+				<p>Discussion</p>	
+			</div>
+			<div class="card-body">
+				<form method="POST" action="${requestScope['javax.servlet.forward.query_string']}">
+					<div class="form-group">
+						<input type="text" name="discussionName" value="" size="40" maxlength="20" placeholder="Nom de la discussion (requis)"/>
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary">Ajouter</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<br>
+	</div>
 	
 	<%@include file="ressource/footer.html" %>
 	
