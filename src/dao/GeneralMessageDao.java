@@ -54,9 +54,7 @@ public final class GeneralMessageDao extends BaseDao implements MessageDao {
                 messages.add(this.map(resultSet));
             }
 
-        } catch (final SQLException e) {
-            e.printStackTrace();
-        }
+        } catch (final SQLException e) {}
 
         return messages;
     }
@@ -64,25 +62,25 @@ public final class GeneralMessageDao extends BaseDao implements MessageDao {
     @Override
     public void sendMessage(final String content, final Discussion discussion, final User owner) {
 
-        final Long userId = owner.getId();
-        final Long discussionId = discussion.getId();
+        if (content.length() > 0) {
+            final Long userId = owner.getId();
+            final Long discussionId = discussion.getId();
 
-        try {
-            // Connect to database.
-            final PgConnection connection = this.getFactory().getConnection();
+            try {
+                // Connect to database.
+                final PgConnection connection = this.getFactory().getConnection();
 
-            // Prepared request.
-            final PreparedStatement statement = connection.prepareStatement(GeneralMessageDao.INSERT_REQUEST);
+                // Prepared request.
+                final PreparedStatement statement = connection.prepareStatement(GeneralMessageDao.INSERT_REQUEST);
 
-            statement.setString(1, content);
-            statement.setDate(2, java.sql.Date.valueOf(java.time.LocalDate.now()));
-            statement.setLong(3, discussionId);
-            statement.setLong(4, userId);
+                statement.setString(1, content);
+                statement.setDate(2, java.sql.Date.valueOf(java.time.LocalDate.now()));
+                statement.setLong(3, discussionId);
+                statement.setLong(4, userId);
 
-            statement.executeQuery();
+                statement.executeQuery();
 
-        } catch (final SQLException e) {
-            e.printStackTrace();
+            } catch (final SQLException e) {}
         }
     }
 

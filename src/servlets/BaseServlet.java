@@ -1,8 +1,10 @@
 package servlets;
 
+import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +19,9 @@ public class BaseServlet extends HttpServlet {
     /** Serial number. */
     private static final long serialVersionUID = -1929195511182857136L;
 
+    /** View to display on error. */
+    private static final String VIEW_404 = "/WEB-INF/404.jsp";
+
     /**
      * Redirects to 404 page.
      *
@@ -24,7 +29,9 @@ public class BaseServlet extends HttpServlet {
      * @param res
      */
     protected void redirect404(final HttpServletRequest req, final HttpServletResponse res) {
-        // TODO: Implement.
+        try {
+            this.getServletContext().getRequestDispatcher(BaseServlet.VIEW_404).forward(req, res);
+        } catch (ServletException | IOException e) {}
     }
 
     /**

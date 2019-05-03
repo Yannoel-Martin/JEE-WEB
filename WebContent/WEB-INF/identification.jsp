@@ -30,20 +30,20 @@
 					<div class="card-body">
 						<form method="post" action="subscribe">
 						  <div class="form-group">
-						    <input type="text" class="form-control" id="login_ins" placeholder="Login (requis)">
+						    <input type="text" class="form-control" name="login" id="login_ins" placeholder="Login (requis)">
 						  </div>
 						  <div class="form-group">
-						    <input type="password" class="form-control" id="password_ins" placeholder="Password (requis)">
+						    <input type="password" class="form-control" name="password" id="password_ins" placeholder="Password (requis)">
 						  </div>
 						  <div class="form-group">
 						    <div class="form-check">
-							  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="1" checked>
+							  <input class="form-check-input" name="role" type="radio" name="exampleRadios" id="exampleRadios1" value="1" checked>
 							  <label class="form-check-label" for="exampleRadios1">
 							    Utilisateur
 							  </label>
 							</div>
 							<div class="form-check">
-							  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="2">
+							  <input class="form-check-input" name="role" type="radio" name="exampleRadios" id="exampleRadios2" value="2">
 							  <label class="form-check-label" for="exampleRadios2">
 							    Administrateur
 							  </label>
