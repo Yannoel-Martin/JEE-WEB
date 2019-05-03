@@ -15,7 +15,7 @@
 	<div class="container">
 		<div class="card">
 			<div class="card-header">
-				<p>Statut de la discussion : 
+				<p>Statut de la discussion : ${discussion.status.id}
 					<c:choose>
 						<c:when test="${discussion.status.id == 1}">
 							Ouvert
