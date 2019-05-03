@@ -78,10 +78,9 @@ public class BaseServlet extends HttpServlet {
      * @return
      */
     protected User getAuthentificatedUser(final HttpServletRequest req, final HttpServletResponse res) {
-        final User user = new User();
-        user.setId(2L);
+        final String token = (String) req.getSession().getAttribute(BaseServlet.TOKEN_ATTR);
 
-        return user;
+        return this.authService.getUserFromToken(token);
     }
 
     /**
